@@ -1,0 +1,106 @@
+/* --------------------------------------------------------------------------------
+cta-main
+-------------------------------------------------------------------------------- */
+
+/* section */
+.cta-main .section-wrapper {
+	background-color: #fafafa;
+}
+
+.cta-main .section-frame {
+	padding: 21px 0 27px;
+}
+
+@media print, screen and (min-width: 48em) {
+	.cta-main .section-frame {
+		padding: 30px 0 36px;
+	}
+}
+
+@media print, screen and (min-width: 61.25em) {
+	.cta-main .section-frame {
+		padding: 39px 0 42px;
+	}
+}
+
+/* catch & lead */
+.cta-main .section-frame .catch {
+	margin-bottom: 9px;
+	font-size: 15px;
+	font-size: 1.5rem;
+	text-align: center;
+	font-weight: 600;
+	color: $color__primary;
+	line-height: 1.2;
+	font-family: $font__primary;
+}
+
+.cta-main .section-frame .lead {
+	margin-bottom: 18px;
+	font-size: 24px;
+	font-size: 2.4rem;
+	text-align: center;
+	font-weight: 600;
+	color: #111;
+	line-height: 1.2;
+	font-family: $font__primary;
+}
+
+@media print, screen and (min-width: 48em) {
+	.cta-main .section-frame .catch {
+		margin-bottom: 12px;
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+	.cta-main .section-frame .lead {
+		margin-bottom: 21px;
+		font-size: 24px;
+		font-size: 2.4rem;
+	}
+}
+
+@media print, screen and (min-width: 61.25em) {
+	.cta-main .section-frame .lead {
+		margin-bottom: 24px;
+		font-size: 27px;
+		font-size: 2.7rem;
+	}
+}
+
+/* button */
+.cta-main .button-area {
+	text-align: center;
+}
+.cta-main .button-area .button {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 500px;
+}
+
+/* tel */
+.cta-main .tel {
+	font-family: $font__primary;
+	font-size: 15px;
+	font-size: 1.5rem;
+	text-align: center;
+	color: #333;
+	line-height: 1.2;
+	font-weight: 600;
+}
+
+.cta-main .tel-number {
+	font-size: 18px;
+	font-size: 1.8rem;
+}
+
+.cta-main .time {
+	font-size: 14px;
+	font-size: 1.4rem;
+}
+
+@media print, screen and (min-width: 61.25em) {
+	.cta-main .tel-number {
+		font-size: 21px;
+		font-size: 2.1rem;
+	}
+}

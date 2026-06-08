@@ -1,0 +1,328 @@
+/* --------------------------------------------------------------------------------
+number
+-------------------------------------------------------------------------------- */
+
+/* recruit-number-mv */
+
+.recruit-number-mv .sf {
+	text-align: center;
+	width: 100%;
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, 0.7);
+	-webkit-box-shadow: 0 2px 5px rgba(58, 58, 58, 0.3);
+	box-shadow: 0 2px 5px rgba(58, 58, 58, 0.3);
+	border-radius: 5px;
+	padding: 24px 20px 27px;
+	margin: 0 auto 36px;
+}
+
+.recruit-number-mv .text-area {
+	padding: 12px 0;
+}
+
+.recruit-number-mv .sub-title {
+	position: relative;
+	text-align: center;
+	margin-bottom: 3px;
+	font-family: $font__secondary;
+	color: $color__primary;
+	font-size: 15px;
+	font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 1.3;
+}
+
+.recruit-number-mv .title {
+	position: relative;
+	text-align: center;
+	margin-bottom: 6px;
+	color: #111;
+	font-size: 30px;
+	font-size: 3.0rem;
+}
+
+.recruit-number-mv .lead {
+	position: relative;
+	text-align: center;
+	color: #666;
+	font-size: 12px;
+	font-size: 1.2rem;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+@media print, screen and (min-width: $media__t2) {
+	.recruit-number-mv .text-area {
+		position: relative;
+		display: inline-block;
+		padding: 24px 70px;
+	}
+
+	.recruit-number-mv .text-area:before {
+		display: block;
+		position: absolute;
+		content: '';
+		top: 50%;
+		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		left: 0px;
+		width: 50px;
+		height: 50px;
+		background: url("/assets/img/number/i_mv_001.svg") no-repeat top center;
+		background-size: 50px 50px;
+	}
+
+	.recruit-number-mv .text-area:after {
+		display: block;
+		position: absolute;
+		content: '';
+		top: 50%;
+		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		right: 0;
+		width: 50px;
+		height: 50px;
+		background: url("/assets/img/number/i_mv_002.svg") no-repeat top center;
+		background-size: 50px 50px;
+	}
+}
+
+@media print, screen and (min-width: $media__t3) {
+	.recruit-number-mv .sf {
+		margin-bottom: 60px;
+	}
+
+	.recruit-number-mv .sub-title {
+		margin-bottom: 6px;
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+
+	.recruit-number-mv .title {
+		margin-bottom: 12px;
+		font-size: 42px;
+		font-size: 4.2rem;
+	}
+
+	.recruit-number-mv .lead {
+		font-size: 15px;
+		font-size: 1.5rem;
+	}
+
+	.recruit-number-mv .text-area {
+		padding: 39px 100px;
+	}
+
+	.recruit-number-mv .text-area:before {
+		width: 70px;
+		height: 70px;
+		background-size: 70px 70px;
+	}
+
+	.recruit-number-mv .text-area:after {
+		width: 70px;
+		height: 70px;
+		background-size: 70px 70px;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.recruit-number-mv .sf {
+		margin-bottom: 60px;
+	}
+
+	.recruit-number-mv .sub-title {
+		margin-bottom: 9px;
+		font-size: 21px;
+		font-size: 2.1rem;
+	}
+
+	.recruit-number-mv .title {
+		margin-bottom: 15px;
+		font-size: 51px;
+		font-size: 5.1rem;
+	}
+
+	.recruit-number-mv .lead {
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+
+	.recruit-number-mv .text-area {
+		padding: 51px 120px;
+	}
+
+	.recruit-number-mv .text-area:before {
+		width: 80px;
+		height: 80px;
+		background-size: 80px 80px;
+	}
+
+	.recruit-number-mv .text-area:after {
+		width: 80px;
+		height: 80px;
+		background-size: 80px 80px;
+	}
+}
+
+
+/* recruit-number */
+
+.recruit-number .unit {
+	width: 100%;
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, 0.7);
+	-webkit-box-shadow: 0 2px 5px rgba(58, 58, 58, 0.3);
+	box-shadow: 0 2px 5px rgba(58, 58, 58, 0.3);
+	border-radius: 5px;
+	padding: 15px 20px 30px;
+	margin: 0 auto 24px;
+}
+
+.recruit-number .unit .head {
+	position: relative;
+	text-align: center;
+	margin:  0px auto 15px;
+	font-size: 15px;
+	font-size: 1.5rem;
+	color: $color__primary;
+	font-family: $font__secondary;
+	font-weight: 600;
+}
+
+.recruit-number .unit .head:before {
+	display: inline-block;
+	position: relative;
+	content: '';
+	width: 10px;
+	height: 10px;
+	margin-right: 5px;
+	background: url("/assets/img/common/head_bg_001.svg") no-repeat top center;
+	background-size: 10px 10px;
+}
+
+.recruit-number .unit .head:after {
+	display: inline-block;
+	position: relative;
+	content: '';
+	top: 0px;
+	right: 0;
+	width: 10px;
+	height: 10px;
+	margin-left: 5px;
+	background: url("/assets/img/common/head_bg_002.svg") no-repeat top center;
+	background-size: 10px 10px;
+}
+
+.recruit-number .unit .body {
+	position: relative;
+	background-color: #fafafa;
+}
+
+.recruit-number .unit .body.remote {
+	background-color: #fff;
+}
+
+.recruit-number .unit .body .img-i {
+	position: relative;
+	transform: translateY(30%);
+	-webkit-transform: translateY(30%);
+	-ms-transform: translateY(30%);
+	padding-right: 15px; 
+}
+
+.recruit-number .unit .img-i img {
+	width: 30px;
+	height: 30px;
+}
+
+.recruit-number .unit .count {
+	text-align: right;
+	margin: 12px 0;
+}
+
+.recruit-number .unit .count-num {
+	color: $color__primary;
+	font-size: 42px;
+	font-size: 4.2rem;
+	font-weight: 500;
+}
+
+.recruit-number .unit .count-unit {
+	color: $color__primary;
+	font-size: 21px;
+	font-size: 2.1rem;
+	font-weight: 500;
+}
+
+.recruit-number .unit .img {
+}
+
+.recruit-number .unit .img img {
+	width: 100%;
+}
+
+.recruit-number .unit .img2 {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	left: 15px;
+	width: 39px;
+}
+
+.recruit-number .unit .img2 img {
+	width: 39px;
+}
+
+@media print, screen and (min-width: $media__t3) {
+	.recruit-number .col2 {
+		margin-left: -30px;
+		width: calc(100% + 30px);
+	}
+
+	.recruit-number .col2 .unit {
+		margin-left: 30px; 
+		width: calc(50% - 30px);
+	}
+
+	.recruit-number .col3 {
+		margin-left: -30px;
+		width: calc(100% + 30px);
+	}
+
+	.recruit-number .col3 .unit {
+		margin-left: 30px; 
+		width: calc(33.33% - 30px);
+	}
+}
+
+
+@media print, screen and (min-width: $media__p2) {
+
+	.recruit-number .unit {
+		padding: 15px 40px 39px;
+		margin: 0 auto 30px;
+	}
+
+	.recruit-number .unit .head {
+		margin: 9px auto 21px;
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+
+	.recruit-number .unit .head:before {
+		width: 18px;
+		height: 18px;
+		background-size: 18px 18px;
+	}
+
+	.recruit-number .unit .head:after {
+		width: 18px;
+		height: 18px;
+		background-size: 18px 18px;
+	}
+}

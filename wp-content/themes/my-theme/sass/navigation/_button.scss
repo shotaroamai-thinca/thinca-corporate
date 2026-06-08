@@ -1,0 +1,124 @@
+/* --------------------------------------------------------------------------------
+button
+-------------------------------------------------------------------------------- */
+
+.button {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	font-size: 15px;
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: rgb(255, 255, 255);
+	background: linear-gradient(to right, rgb(204, 41, 38) 0%, rgb(239, 144, 58) 100%);
+	border-radius: 3px;
+	margin: 0 0 16px;
+	-webkit-box-shadow: 0 2px 5px rgba(58, 58, 58, 0.3);
+	box-shadow: 0 2px 5px rgba(58, 58, 58, 0.3);
+	cursor: pointer;
+}
+
+.button.-l {
+	height: 60px;
+	line-height: 60px;
+}
+
+
+
+@media print, screen and (min-width: $media__t) {
+	.button {
+		height: 54px;
+		line-height: 54px;
+	}
+
+	.button.-l {
+		height: 69px;
+		line-height: 69px;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.button {
+		height: 60px;
+		line-height: 60px;
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+
+	.button.-l {
+		height: 75px;
+		line-height: 75px;
+	}
+}
+
+/* icon */
+.button span:after {
+	display: inline-block;
+	position: relative;
+	content: '';
+	top: -0.06em;
+	margin-left: 5px;
+	width: 10px;
+	height: 10px;
+	background: url("/assets/img/common/arrow-right-fff.svg") no-repeat top center;
+	background-size: 10px 10px;
+}
+
+.button.-nw span:after {
+	display: inline-block;
+	position: relative;
+	content: '';
+	top: -0.06em;
+	margin-left: 5px;
+	width: 10px;
+	height: 10px;
+	background: url("/assets/img/common/icon_nw.svg") no-repeat top center;
+	background-size: 10px 10px;
+}
+
+/* hover */
+.button:hover {
+	text-decoration: none;
+}
+
+.button span {
+	position: relative;
+	z-index: 20;
+}
+
+@media print, screen and (min-width: $media__p) {
+	.button:before, .button:after {
+		display: block;
+		position: absolute;
+		content: '';
+		z-index: 0;
+		top: 0;
+		width: calc(50% + 1px);
+		height: 100%;
+		background-color: $color__primary;
+		transition: -webkit-transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s;
+		transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s;
+		transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s, -webkit-transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s;
+	}
+
+	.button:before {
+		left: 0;
+		-webkit-transform: translate(-100%, 0);
+		transform: translate(-100%, 0);
+	}
+
+	.button:after {
+		right: 0;
+		-webkit-transform: translate(100%, 0);
+		transform: translate(100%, 0);
+	}
+
+	.button:hover:before, .button:hover:after {
+		-webkit-transform: translate(0, 0);
+		transform: translate(0, 0);
+	}
+}

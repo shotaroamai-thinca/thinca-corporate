@@ -1,0 +1,231 @@
+/* --------------------------------------------------------------------------------
+table
+-------------------------------------------------------------------------------- */
+
+.wp-block-table table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.wp-block-table {
+	margin-bottom: 27px; /* pのmargin-bottomに合わせる */
+	padding-top: 6px; /* pの行間分の余白(上) */
+}
+
+@media print, screen and (min-width: $media__t) {
+	.wp-block-table {
+		margin-bottom: 36px; /* pのmargin-bottomに合わせる */
+		padding-top: 8px; /* pの行間分の余白(上) */
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.wp-block-table {
+		margin-bottom: 42px; /* pのmargin-bottomに合わせる */
+		padding-top: 8px; /* pの行間分の余白(上) */
+	}
+}
+
+/* ts */
+@media only screen and (max-width: $media__s) {
+	.wp-block-table.ts table {
+		border-bottom: 1px solid #dddddd;
+	}
+
+	.wp-block-table.ts table td:first-child,
+	.wp-block-table.ts table td {
+		display: block;
+	}
+
+	.wp-block-table.ts table td:first-child {
+		border-top: 1px solid #dddddd;
+		padding: 15px 15px 3px;
+		font-weight: 600;
+		color: #222;
+	}
+
+	.wp-block-table.ts table td {
+		padding: 0 15px 15px;
+		font-weight: normal;
+	}
+}
+
+@media print, screen and (min-width: $media__t) {
+	.wp-block-table.ts table {
+		border-bottom: 1px solid #dddddd;
+	}
+
+	.wp-block-table.ts table td {
+		vertical-align: top;
+		border-top: 1px solid #dddddd;
+		padding: 18px 20px;
+	}
+
+	.wp-block-table.ts table td:first-child {
+		width: 20%;
+		white-space: nowrap;
+		font-weight: 600;
+		color: #222;
+	}
+
+	.wp-block-table.ts table td {
+		width: 80%;
+		font-weight: normal;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.wp-block-table.ts table td {
+		padding: 24px 20px;
+	}
+}
+
+/* ts2 */
+@media only screen and (max-width: $media__s) {
+	.wp-block-table.ts2 table {
+		border-bottom: 1px solid #dddddd;
+	}
+
+	.wp-block-table.ts2 table td:first-child,
+	.wp-block-table.ts2 table td {
+		display: block;
+	}
+
+	.wp-block-table.ts2 table td:first-child {
+		border-top: 1px solid #dddddd;
+		padding: 15px 15px 3px;
+		font-weight: normal;
+		color: #666;
+	}
+
+	.wp-block-table.ts2 table td {
+		padding: 0 15px 15px;
+		font-weight: 600;
+		color: #222;
+	}
+}
+
+@media print, screen and (min-width: $media__t) {
+	.wp-block-table.ts2 table {
+		border-bottom: 1px solid #dddddd;
+	}
+
+	.wp-block-table.ts2 table td {
+		vertical-align: top;
+		border-top: 1px solid #dddddd;
+		padding: 18px 20px;
+	}
+
+	.wp-block-table.ts2 table td:first-child {
+		width: 20%;
+		font-weight: normal;
+		color: #666;
+		white-space: nowrap;
+	}
+
+	.wp-block-table.ts2 table td {
+		width: 80%;
+		font-weight: 600;
+		color: #222;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.wp-block-table.ts2 table td {
+		padding: 24px 20px;
+	}
+}
+
+/* table-line */
+
+@media print, screen and (min-width: $media__t) {
+	.wp-block-table.table-line table td:first-child {
+		position: relative;
+	}
+
+	.wp-block-table.table-line table td:first-child:after {
+		content: '';
+		position: absolute;
+		top: 8px;
+		right: 0px;
+		width: 2px;
+		height: calc(100% - 16px);
+		background-color: $color__primary;
+	}
+}
+
+
+/* ts3 */
+.wp-block-table.ts3 table {
+	border-bottom: 1px solid #dddddd;
+}
+
+.wp-block-table.ts3 table thead th {
+	padding: 18px 5px;
+	white-space: nowrap;
+	font-weight: 600;
+	color: #222;
+}
+
+.wp-block-table.ts3 table td {
+	vertical-align: top;
+	border-top: 1px solid #dddddd;
+	padding: 18px 20px;
+	text-align: right;
+}
+
+
+.wp-block-table.ts3 .hl ,
+.wp-block-table.ts3 table td:first-child {
+	width: 20%;
+	white-space: nowrap;
+	font-weight: 600;
+	color: #222;
+}
+
+.wp-block-table.ts3 table td {
+	font-weight: normal;
+}
+
+@media print, screen and (min-width: $media__p) {
+	.wp-block-table.ts3 table td {
+		padding: 21px 20px;
+	}
+}
+
+/* ts4 */
+.wp-block-table.ts4 table {
+	border-bottom: 1px solid #dddddd;
+}
+
+.wp-block-table.ts4 table td {
+	vertical-align: top;
+	border-top: 1px solid #dddddd;
+	padding: 3px 5px;
+	text-align: right;
+	font-size: 12px;
+	font-size: 1.2rem;
+}
+
+
+.wp-block-table.ts4 .hl ,
+.wp-block-table.ts4 table td:first-child {
+	white-space: nowrap;
+	font-weight: 600;
+	color: #222;
+}
+
+.wp-block-table.ts4 table td {
+	font-weight: normal;
+}
+
+/* figcaption */
+.wp-block-table figcaption {
+	margin-top: 9px;
+	font-size: 12px;
+	font-size: 1.2rem;
+	color: #666;
+}
+
+
+

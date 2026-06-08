@@ -1,0 +1,29 @@
+/* --------------------------------------------------------------------------------
+ie
+-------------------------------------------------------------------------------- */
+
+@media all and (-ms-high-contrast: none) {
+
+/* 
+	*,
+	*:before,
+	*:after {
+		font-family: "メイリオ", Meiryo, sans-serif !important;
+	}
+*/
+
+	.text-gradation,
+	.tg {
+		color: $color__primary !important;
+		background-image: none !important;
+	}
+
+	.tg .nb {
+		display: inline-block !important;
+	}
+
+	.tg strong {
+		color: $color__primary !important;
+	}
+
+}

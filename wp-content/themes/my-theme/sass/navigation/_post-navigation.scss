@@ -1,0 +1,72 @@
+/* --------------------------------------------------------------------------------
+post-navigation
+-------------------------------------------------------------------------------- */
+
+.post-navigation .nav-previous,
+.post-navigation .nav-next {
+	width: 100%;
+}
+
+.post-navigation .nav-previous a,
+.post-navigation .nav-next a {
+	display: block;
+	margin-bottom: 18px; 
+	padding: 12px 15px;
+	border: 1px solid #dddddd;
+}
+
+.post-navigation .nav-next a {
+	text-align: right;
+}
+
+.post-navigation .nav-previous svg {
+	position: relative;
+	top: 0;
+	width: 10px;
+	height: 10px;
+	margin-right: 5px; 
+	fill: $color__link;
+	-webkit-transition: all .4s ease;
+	transition: all .4s ease;
+}
+
+.post-navigation .nav-previous a:hover svg {
+	-webkit-transform: translateX(-5px);
+	transform: translateX(-5px);
+}
+
+.post-navigation .nav-next svg {
+	position: relative;
+	top: 0;
+	width: 10px;
+	height: 10px;
+	margin-left: 5px; 
+	fill: $color__link;
+	-webkit-transition: all .4s ease;
+	transition: all .4s ease;
+}
+
+.post-navigation .nav-next a:hover svg {
+	-webkit-transform: translateX(5px);
+	transform: translateX(5px);
+}
+
+@media print, screen and (min-width: $media__t) {
+	.post-navigation .nav-previous,
+	.post-navigation .nav-next {
+		width: 45%;
+	}
+	.post-navigation .nav-previous a,
+	.post-navigation .nav-next a {
+		padding: 15px 30px;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.post-navigation .nav-previous a,
+	.post-navigation .nav-next a {
+		padding: 30px 50px;
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+}

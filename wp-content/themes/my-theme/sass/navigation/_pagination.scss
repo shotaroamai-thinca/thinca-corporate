@@ -1,0 +1,106 @@
+/* --------------------------------------------------------------------------------
+pagination
+-------------------------------------------------------------------------------- */
+
+.pagination .nav-links {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+@media only screen and (max-width: $media__s3) {
+	.pagination {
+		margin: 0 0 42px;
+	}
+
+	.pagination .page-numbers {
+		display: none;
+	}
+
+	.pagination .prev,
+	.pagination .next {
+		display: block;
+		background-color: #fff;
+		width: 100%;
+		padding: 9px 20px;
+	}
+
+	.pagination .prev {
+		border-top: 1px solid #dddddd;
+		border-bottom: 1px solid #dddddd;
+	}
+
+	.pagination .next {
+		border: 1px solid #dddddd;
+		text-align: right;
+	}
+
+	.pagination .prev svg,
+	.pagination .next svg {
+		width: 12px;
+		height: 12px;
+		fill: $color__link;
+	}
+
+	.pagination .prev svg {
+		margin-right: 5px;
+	}
+
+	.pagination .next svg {
+		margin-left: 5px;
+	}
+}
+
+@media print, screen and (min-width: $media__t3) {
+	.pagination {
+		margin: 0 0 60px;
+	}
+
+	.pagination .page-numbers {
+		display: block;
+		text-align: center;
+		margin: 0 10px;
+		border: 1px solid #dddddd;
+		width: 50px;
+		height: 50px;
+		background-color: #fafafa;
+		padding: 13px 0 0;
+		font-size: 18px;
+		font-size: 1.8rem;
+		line-height: 1.2;
+		-webkit-transition: all .5s ease;
+		transition: all .5s ease;
+	}
+
+	.pagination a:hover {
+		text-decoration: none;
+		background-color: #dddddd;
+	}
+
+	.pagination .current,
+	.pagination .dots {
+		color: #666;
+	}
+
+	.pagination .prev svg,
+	.pagination .next svg {
+		width: 12px;
+		height: 12px;
+		fill: $color__link;
+	}
+
+	.sp-text {
+		display: none;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.pagination .page-numbers {
+		margin: 0 15px;
+	}
+}

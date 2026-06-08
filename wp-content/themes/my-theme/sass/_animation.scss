@@ -1,0 +1,21 @@
+/* --------------------------------------------------------------------------------
+animation
+-------------------------------------------------------------------------------- */
+
+/* アニメーション要素のスタイル */
+.fadein {
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: ease all 1.0s;
+	transition: ease all 1.0s;
+	-webkit-transform: translate(0, 30px);
+	transform: translate(0, 30px);
+}
+
+/* アニメーション要素までスクロールした時のスタイル */
+.active {
+	opacity: 1;
+	visibility: visible;
+	-webkit-transform: translate(0, 0);
+	transform: translate(0, 0);
+}

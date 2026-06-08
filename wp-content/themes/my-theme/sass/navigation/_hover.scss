@@ -1,0 +1,57 @@
+/* --------------------------------------------------------------------------------
+hover
+-------------------------------------------------------------------------------- */
+
+.hover {
+	-webkit-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+.hover svg {
+	position: relative;
+	top: 0;
+	width: 10px;
+	height: 10px;
+	margin-left: 5px; 
+	fill: $color__primary;
+	-webkit-transition: all .4s ease;
+	transition: all .4s ease;
+}
+
+.hover:hover {
+	text-decoration: none;
+}
+
+a.hover:hover svg {
+	-webkit-transform: translateX(5px);
+	transform: translateX(5px);
+}
+
+.hover.bg:hover {
+	background-color: #fafafa;
+	background-color: rgba(220, 220, 220, 0.3);
+}
+
+
+/* hover__opa */
+.hover__opa {
+	-webkit-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+.hover__opa:hover {
+	opacity: 0.7;
+	text-decoration: none;
+}
+
+
+/* shadow */
+.shadow {
+	-webkit-box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.shadow:hover {
+	-webkit-box-shadow: 3px 3px 9px 0 rgba(0, 0, 0, 0.5);
+	box-shadow: 3px 3px 9px 0 rgba(0, 0, 0, 0.5);
+}

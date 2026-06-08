@@ -1,0 +1,82 @@
+/* --------------------------------------------------------------------------------
+widgets
+-------------------------------------------------------------------------------- */
+
+.widgets {
+	margin: 0 0 60px;
+}
+
+.widget {
+	width: 100%;
+}
+
+.widget .widget-title {
+	text-align: center;
+	margin: 0;
+	border-bottom: 3px solid #dddddd;
+	padding: 0 0 15px;
+	font-size: 18px;
+	font-size: 1.8rem;
+}
+
+.widget ul {
+	list-style: none;
+	margin: 0 0 30px;
+	padding: 0;
+}
+
+.widget li a {
+	display: block;
+	position: relative;
+	border-bottom: 1px solid #dddddd;
+	padding: 15px 20px;
+	font-size: 15px;
+	font-size: 1.5rem;
+}
+
+.widget li a:before {
+	content: '';
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	margin-right: 5px;
+	width: 12px;
+	height: 12px;
+	background: url("/assets/img/arrow-left.svg") no-repeat top center;
+	background-size: 10px 10px;
+}
+
+.widget ul .current-cat {
+	background-color: #fafafa;
+}
+
+.widget li a:hover {
+	background-color: #fafafa;
+}
+
+@media only screen and (max-width: $media__s3) {
+	.widgets .section-wrapper {
+		padding: 0;
+	}
+}
+
+@media print, screen and (min-width: $media__t3) {
+	.widgets .flex {
+		margin-left: -40px; 
+	}
+
+	.widget {
+		width: calc(50% - 40px);
+		margin-left: 40px; 
+	}
+
+	.widget li a {
+		font-size: 16px;
+		font-size: 1.6rem;
+	}
+
+	.widget li a:before {
+		background: url("/assets/img/arrow-left.svg") no-repeat top center;
+		background-size: 12px 12px;
+	}
+}

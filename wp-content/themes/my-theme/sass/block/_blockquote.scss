@@ -1,0 +1,27 @@
+/* --------------------------------------------------------------------------------
+blockquote
+-------------------------------------------------------------------------------- */
+
+.entry-content blockquote {
+	display: block;
+	margin: 0 0 27px;
+	padding: 24px 0;
+	border: 1px solid #dddddd;
+	background-color: #fafafa;
+	font-weight: bold;
+	font-size: 18px !important;
+	font-size: 1.8rem !important;
+}
+
+.entry-content blockquote p {
+	margin-bottom: 0; 
+}
+
+@media print, screen and (min-width: 61.25em) {
+	.entry-content blockquote {
+		margin: 0 0 42px;
+		padding: 24px 30px;
+		font-size: 27px !important;
+		font-size: 2.7rem !important;
+	}
+}

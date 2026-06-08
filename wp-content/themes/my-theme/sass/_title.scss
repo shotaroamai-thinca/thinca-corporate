@@ -1,0 +1,251 @@
+/* --------------------------------------------------------------------------------
+title
+-------------------------------------------------------------------------------- */
+
+/* category-title
+-------------------------------------------------- */
+
+.category-title {
+	margin-bottom: 42px; 
+	padding-top: 0px;
+	padding-bottom: 24px;
+}
+
+.category-title .title {
+	position: relative;
+	text-align: center;
+	font-family: $font__secondary;
+	font-size: 36px;
+	font-size: 3.6rem;
+	color: $color__primary;
+	letter-spacing: 0.1em;
+	font-weight: 500;
+	text-shadow: 
+		#fff 5px 0px 5px, #fff -5px 0px 5px,
+		#fff 0px -5px 5px, #fff -5px 0px 5px,
+		#fff 5px 5px 5px, #fff -5px 5px 5px,
+		#fff 5px -5px 5px, #fff -5px -5px 5px,
+		#fff 1px 5px 5px, #fff -1px 5px 5px,
+		#fff 1px -5px 5px, #fff -1px -5px 5px,
+		#fff 5px 1px 5px, #fff -5px 1px 5px,
+		#fff 5px -1px 5px, #fff -5px -1px 5px,
+		#fff 1px 1px 5px, #fff -1px 1px 5px,
+		#fff 1px -1px 5px, #fff -1px -1px 5px;
+	opacity: 0;
+}
+
+.category-title .sub-title {
+	position: relative;
+	text-align: center;
+	font-size: 11px;
+	font-size: 1.1rem;
+	color: #111;
+	font-weight: 600;
+	text-shadow: 
+		#fff 5px 0px 5px, #fff -5px 0px 5px,
+		#fff 0px -5px 5px, #fff -5px 0px 5px,
+		#fff 5px 5px 5px, #fff -5px 5px 5px,
+		#fff 5px -5px 5px, #fff -5px -5px 5px,
+		#fff 1px 5px 5px, #fff -1px 5px 5px,
+		#fff 1px -5px 5px, #fff -1px -5px 5px,
+		#fff 5px 1px 5px, #fff -5px 1px 5px,
+		#fff 5px -1px 5px, #fff -5px -1px 5px,
+		#fff 1px 1px 5px, #fff -1px 1px 5px,
+		#fff 1px -1px 5px, #fff -1px -1px 5px;
+	opacity: 0;
+}
+
+
+@media print, screen and (min-width: $media__t) {
+	.category-title {
+		margin-bottom: 60px; 
+		padding-top: 21px;
+		padding-bottom: 24px;
+	}
+
+	.category-title .title {
+		font-size: 45px;
+		font-size: 4.5rem;
+	}
+
+	.category-title .sub-title {
+		font-size: 14px;
+		font-size: 1.4rem;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.category-title {
+		margin-bottom: 90px; 
+		padding-top: 50px;
+		padding-bottom: 24px;
+	}
+
+	.category-title .title {
+		font-size: 66px;
+		font-size: 6.6rem;
+	}
+
+	.category-title .sub-title {
+		font-size: 16px;
+		font-size: 1.6rem;
+	}
+}
+
+
+/* page-title
+-------------------------------------------------- */
+
+.page-title {
+	padding-bottom: 63px;
+}
+
+.page-title .sub-title {
+	font-size: 15px;
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: $color__primary;
+	text-align: center;
+}
+
+.page-title .title {
+	margin-bottom: 3px;
+	font-size: 27px;
+	font-size: 2.7rem;
+	line-height: 1.3;
+	color: #111;
+	text-align: center;
+}
+
+@media print, screen and (min-width: $media__t) {
+	.page-title {
+		padding-top: 24px;
+		padding-bottom: 69px;
+	}
+
+	.page-title .title {
+		font-size: 30px;
+		font-size: 3.0rem;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.page-title {
+		padding-top: 42px;
+		padding-bottom: 84px;
+	}
+
+	.page-title .sub-title {
+		margin-bottom: 6px;
+	}
+
+	.page-title .title {
+		margin-bottom: 18px;
+		font-size: 36px;
+		font-size: 3.6rem;
+	}
+}
+
+
+/* entry-title
+-------------------------------------------------- */
+
+.entry-title {
+	padding-bottom: 54px;
+}
+
+.entry-title .sub-title {
+	margin-bottom: 9px;
+	font-size: 15px;
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: $color__primary;
+}
+
+.entry-title .title {
+	margin-bottom: 12px;
+	font-size: 27px;
+	font-size: 2.7rem;
+	line-height: 1.3;
+	color: #111;
+}
+
+.entry-title .title a {
+	color: #111;
+}
+
+.entry-title .data {
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 6px;
+	padding: 2px 0;
+	font-size: 11px;
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #666;
+}
+
+.entry-title .category {
+	display: inline-block;
+	margin-right: 5px;
+	margin-bottom: 6px;
+	padding: 3px 5px;
+	background-color: #fff;
+	border: 1px solid $color__primary;
+	border-radius: 2px;
+	font-size: 10px;
+	font-size: 1.0rem;
+	color: #333;
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+@media print, screen and (min-width: $media__t) {
+	.entry-title {
+		padding-top: 24px;
+		padding-bottom: 54px;
+	}
+
+	.entry-title .title {
+		font-size: 30px;
+		font-size: 3.0rem;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.entry-title {
+		padding-top: 42px;
+		padding-bottom: 65px;
+	}
+
+	.entry-title .title {
+		margin-bottom: 18px;
+		font-size: 36px;
+		font-size: 3.6rem;
+	}
+
+	.entry-title .data {
+		font-size: 12px;
+		font-size: 1.2rem;
+	}
+
+	.entry-title .category {
+		font-size: 12px;
+		font-size: 1.2rem;
+	}
+}
+
+
+/* entry-thumbnail
+-------------------------------------------------- */
+
+#entry-thumbnail {
+	margin-top: -24px;
+}
+
+#entry-thumbnail .photo img {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 800px;
+	height: auto;
+}

@@ -1,0 +1,325 @@
+/* --------------------------------------------------------------------------------
+local-navigation
+-------------------------------------------------------------------------------- */
+
+.local-navigation {
+	position: relative;
+	background-color: #fafafa;
+	padding-top: 27px;
+	padding-bottom: 21px;
+}
+
+.local-navigation.bgnone {
+	background: none;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.local-navigation .sub-title {
+	margin-bottom: 3px;
+	font-size: 12px;
+	font-size: 1.2rem;
+	text-align: center;
+	font-family: $font__secondary;
+	color: $color__primary;
+	line-height: 1;
+}
+
+.local-navigation .title {
+	margin-bottom: 24px;
+	font-size: 21px;
+	font-size: 2.1rem;
+	text-align: center;
+	font-family: $font__primary;
+	font-weight: 600;
+	line-height: 1.2;
+	color: #111;
+}
+
+.local-navigation .desc {
+	margin-bottom: 21px;
+	font-size: 15px;
+	font-size: 1.5rem;
+	text-align: center;
+	font-family: $font__secondary;
+	line-height: 1.2;
+	font-weight: 600;
+}
+
+.local-navigation .menue li {
+	width: 100%;
+	margin-bottom: 18px;
+}
+
+.local-navigation .menue li a {
+	display: block;
+	position: relative;
+	padding: 21px 25px 21px;
+	padding: 21px 0 21px;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+}
+
+.local-navigation .menue li a:before {
+	display: block;
+	position: absolute;
+	content: '';
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, 0.7);
+	border: 2px solid #fff;
+	-webkit-box-shadow: 0 2px 5px rgba(58, 58, 58, 0.3);
+	box-shadow: 0 2px 5px rgba(58, 58, 58, 0.3);
+	border-radius: 3px;
+	-webkit-transition: all ease 0.3s;
+	transition: all ease 0.3s;
+}
+
+.local-navigation .menue li a .link-photo {
+	display: block;
+	position: relative;
+	margin-top: -21px;
+	margin-bottom: 21px;
+	padding: 10px 10px 0;
+	width: 100%;
+}
+
+.local-navigation .menue li a .link-photo img {
+	width: 100%;
+	height: auto;
+	border-radius: 2px;
+}
+
+.local-navigation .menue li a .link-title {
+	display: block;
+	position: relative;
+	padding: 0 25px;
+	font-size: 15px;
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-align: center;
+	color: #111;
+}
+
+.local-navigation .menue li a .link-title:after {
+	display: inline-block;
+	position: absolute;
+	content: '';
+	top: 0.4em;
+	margin-left: 5px;
+	width: 9px;
+	height: 9px;
+	background: url("/assets/img/common/arrow-left.svg") no-repeat top center;
+	background-size: 9px 9px;
+	-webkit-transition: all ease 0.3s;
+	transition: all ease 0.3s;
+}
+
+.local-navigation .menue li a .description {
+	display: block;
+	position: relative;
+	margin-top: 3px;
+	padding: 0 25px;
+	color: #333;
+	font-size: 12px;
+	font-size: 1.2rem;
+}
+
+.local-navigation .menue li.current a:before {
+	border: 2px solid $color__primary;
+}
+
+.local-navigation .menue li.current a .link-title:after {
+	display: none;
+}
+
+@media print, screen and (min-width: $media__t) {
+	.local-navigation .menue {
+		margin-left: -25px;
+	}
+
+	.local-navigation .menue li {
+		width: calc(50% - 25px);
+		margin-left: 25px;
+	}
+}
+
+@media print, screen and (min-width: $media__t3) {
+	.local-navigation .desc {
+		margin-bottom: 30px;
+		font-size: 15px;
+		font-size: 1.5rem;
+	}
+
+	.local-navigation .menue {
+		margin-left: -25px;
+	}
+
+	.local-navigation .menue li {
+		width: calc(33.33% - 25px);
+		margin-left: 25px;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.local-navigation {
+		padding-top: 51px;
+		padding-bottom: 9px;
+	}
+
+	.local-navigation .sub-title {
+		font-size: 15px;
+		font-size: 1.5rem;
+	}
+
+	.local-navigation .title {
+		margin-bottom: 48px;
+		font-size: 24px;
+		font-size: 2.4rem;
+	}
+
+	.local-navigation .desc {
+		margin-bottom: 36px;
+		font-size: 21px;
+		font-size: 2.1rem;
+	}
+
+	.local-navigation .menue {
+		margin-left: -40px;
+	}
+
+	.local-navigation .menue li {
+		width: calc(33.33% - 40px);
+		margin-left: 40px;
+		margin-bottom: 40px;
+	}
+
+	.local-navigation .menue li a {
+		padding: 33px 0;
+	}
+
+	.local-navigation .menue li a .link-title {
+		padding: 0 30px;
+		font-size: 21px;
+		font-size: 2.1rem;
+	}
+
+	.local-navigation .menue li a .link-title:after {
+		width: 12px;
+		height: 12px;
+		background-size: 12px 12px;
+	}
+
+	.local-navigation .menue li a .link-photo {
+		display: block;
+		position: relative;
+		margin-top: -33px;
+		margin-bottom: 33px;
+		padding: 15px 15px 0;
+		width: 100%;
+	}
+
+	.local-navigation .menue li a .link-photo img {
+		border-radius: 3px;
+	}
+
+	.local-navigation .menue li a .description {
+		margin-top: 18px;
+		padding: 0 30px;
+		font-size: 15px;
+		font-size: 1.5rem;
+	}
+
+	.local-navigation .menue li a:before {
+		border: 3px solid #fff;
+		border-radius: 5px;
+	}
+
+	.local-navigation .menue li:not(.current) a:hover:before {
+		border: 2px solid $color__primary;
+		-webkit-box-shadow: 0 3px 8px rgba(58, 58, 58, 0.3);
+		box-shadow: 0 3px 8px rgba(58, 58, 58, 0.3);
+		-webkit-transform: scale(1.03, 1.03);
+		transform: scale(1.03, 1.03);
+	}
+
+	.local-navigation .menue li:not(.current) a:hover .link-title:after {
+		margin-left: 10px;
+	}
+
+	.local-navigation .menue li:not(.current) a:hover:before {
+		border: 3px solid $color__primary;
+	}
+
+	.local-navigation .menue li.current a:before {
+		border: 3px solid $color__primary;
+	}
+}
+
+@media print, screen and (min-width: $media__p3) {
+	.local-navigation {
+		padding-top: 57px;
+		padding-bottom: 9px;
+	}
+
+	.local-navigation .sub-title {
+		font-size: 15px;
+		font-size: 1.5rem;
+	}
+
+	.local-navigation .title {
+		margin-bottom: 51px;
+		font-size: 27px;
+		font-size: 2.7rem;
+	}
+
+	.local-navigation .menue {
+		margin-left: -60px;
+	}
+
+	.local-navigation .menue li a {
+		padding: 39px 0;
+	}
+
+	.local-navigation .menue li a .link-title {
+		padding: 0 35px;
+		font-size: 24px;
+		font-size: 2.4rem;
+	}
+
+	.local-navigation .menue li a .link-title:after {
+		width: 15px;
+		height: 15px;
+		background-size: 15px 15px;
+	}
+
+	.local-navigation .menue li a .link-photo {
+		display: block;
+		position: relative;
+		margin-top: -35px;
+		margin-bottom: 35px;
+		padding: 15px 15px 0;
+		width: 100%;
+	}
+
+	.local-navigation .menue li a .link-photo img {
+		width: 100%;
+		height: auto;
+		border-radius: 5px;
+	}
+
+	.local-navigation .menue li a .description {
+		margin-top: 24px;
+		padding: 0 35px;
+	}
+
+	.local-navigation .menue li {
+		width: calc(33.33% - 60px);
+		margin-left: 60px;
+		margin-bottom: 60px;
+	}
+}

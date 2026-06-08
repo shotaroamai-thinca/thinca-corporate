@@ -1,0 +1,97 @@
+/* --------------------------------------------------------------------------------
+background
+-------------------------------------------------------------------------------- */
+
+/* note-bg
+-------------------------------------------------- */
+
+.note-bg-g p,
+.note-bg {
+	margin-bottom: 27px;
+	padding: 1px 15px 2px;
+	background: url("/assets/img/common/note_bg.gif") repeat top left;
+	background-size: 100% 39px;
+	line-height: 39px !important;
+	font-size: 15px !important;
+	font-size: 1.5rem !important;
+}
+
+@media print, screen and (min-width: $media__t3) {
+	.note-bg-g p,
+	.note-bg {
+		margin-bottom: 36px;
+		padding: 1px 30px 2px;
+		background: url("/assets/img/common/note_bg.gif") repeat top left;
+		background-size: 100% 48px;
+		line-height: 48px !important;
+		font-size: 18px !important;
+		font-size: 1.8rem !important;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.note-bg-g p,
+	.note-bg {
+		margin-bottom: 42px;
+		padding: 1px 50px 2px;
+		background: url("/assets/img/common/note_bg.gif") repeat top left;
+		background-size: 100% 54px;
+		line-height: 54px !important;
+		font-size: 18px !important;
+		font-size: 1.8rem !important;
+	}
+}
+
+
+/* text-bg
+-------------------------------------------------- */
+
+.text-bg {
+	background-color: #fafafa;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 2px 5px rgba(58, 58, 58, 0.3);
+	box-shadow: 0 2px 5px rgba(58, 58, 58, 0.3);
+	padding: 15px 20px;
+	font-size: 15px;
+	font-size: 1.5rem;
+	line-height: 1.8;
+}
+
+.text-bg strong {
+	font-weight: 600;
+}
+
+@media print, screen and (min-width: $media__t2) {
+	.text-bg {
+		padding: 24px 40px;
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+}
+
+
+/* block-bg
+-------------------------------------------------- */
+
+/* 追加CSSクラスは bbg frame を設定 */
+
+.wp-block-group.bbg {
+	border: 1px solid #dddddd;
+	background-color: #fffef5;
+	padding: 0 10px;
+	margin-bottom: 27px;
+}
+
+@media print, screen and (min-width: $media__t) {
+	.wp-block-group.bbg {
+		padding: 9px 20px;
+		margin-bottom: 36px;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.wp-block-group.bbg {
+		padding: 0px 50px;
+		margin-bottom: 42px;
+	}
+}

@@ -1,0 +1,573 @@
+/* --------------------------------------------------------------------------------
+passion
+-------------------------------------------------------------------------------- */
+
+/* main-visual
+-------------------------------------------------- */
+
+.main-visual {
+	margin: 0 0 48px;
+}
+
+.main-visual .img img {
+	margin: 0 auto 24px;
+	width: 100%;
+	max-width: 1321px;
+	height: auto;
+}
+
+.main-visual .text {
+	text-align: center;
+	width: 100%;
+	font-weight: 600;
+	font-size: 15px;
+	font-size: 1.5rem;
+	line-height: 1.2;
+}
+
+@media print, screen and (min-width: $media__t2) {
+	.main-visual {
+		margin: 51px 0 66px;
+	}
+
+	.main-visual .img img {
+		margin: 0 auto 24px;
+		width: 100%;
+		max-width: 1321px;
+		height: auto;
+	}
+
+	.main-visual .text {
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.main-visual {
+		margin: 39px 0 84px;
+	}
+
+	.main-visual .img img {
+		margin: 0 auto 39px;
+	}
+
+	.main-visual .text {
+		font-size: 21px;
+		font-size: 2.1rem;
+	}
+}
+
+
+/* passion-message
+-------------------------------------------------- */
+
+.passion-message .section-frame {
+	padding: 27px 20px 36px; 
+	background-color: rgba(255, 255, 255, 0.7);
+	border-radius: 5px;
+	-webkit-box-shadow: 0 2px 5px rgba(58, 58, 58, 0.4);
+	box-shadow: 0 2px 5px rgba(58, 58, 58, 0.4);
+}
+
+.passion-message .catch {
+	text-align: center;
+	margin-bottom: 24px;
+	width: 100%;
+	font-size: 24px;
+	font-size: 2.4rem;
+	font-weight: 300;
+	line-height: 1.2;
+	color: $color__primary;
+}
+
+.passion-message .text {
+	text-align: center;
+	width: 100%;
+	font-size: 18px;
+	font-size: 1.8rem;
+	font-weight: 600;
+	line-height: 1.8;
+}
+
+.passion-message .name {
+	text-align: center;
+	width: 100%;
+	font-size: 15px;
+	font-size: 1.5rem;
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+@media print, screen and (min-width: $media__t) {
+	.passion-message .section-frame {
+		padding: 39px 20px 42px; 
+		border-radius: 10px;
+	}
+
+	.passion-message .catch {
+		margin-bottom: 39px;
+		font-size: 36px;
+		font-size: 3.6rem;
+	}
+
+	.passion-message .frame {
+		margin: 0 auto 39px !important;
+	}
+
+	.passion-message .text {
+		font-size: 18px !important;
+		font-size: 1.8rem !important;
+	}
+
+	.passion-message .name {
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.passion-message .section-frame {
+		padding: 78px 20px 66px; 
+		border-radius: 10px;
+	}
+
+	.passion-message .catch {
+		margin-bottom: 57px;
+		font-size: 51px;
+		font-size: 5.1rem;
+	}
+
+	.passion-message .frame {
+		margin: 0 auto 57px !important;
+	}
+
+	.passion-message .text {
+		font-size: 21px !important;
+		font-size: 2.1rem !important;
+	}
+
+	.passion-message .name {
+		font-size: 21px;
+		font-size: 2.1rem;
+	}
+}
+
+
+/* passion-logic
+-------------------------------------------------- */
+
+.passion-logic .head {
+	text-align: center;
+	width: 100%;
+	margin: 15px 0 21px;
+	font-size: 27px;
+	font-size: 2.7rem;
+	line-height: 1.2;
+	font-weight: 300;
+}
+
+@media print, screen and (min-width: $media__t) {
+	.passion-logic .head {
+		margin: 24px 0 30px;
+		font-size: 36px;
+		font-size: 3.6rem;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.passion-logic .head {
+		margin: 30px 0 39px;
+		font-size: 60px;
+		font-size: 6.0rem;
+	}
+}
+
+.passion-logic .img img {
+	width: 100%;
+	height: auto;
+}
+
+
+/* passion-case-unit
+-------------------------------------------------- */
+
+/* strong-message */
+.strong-message {
+	background-color: $color__primary;
+	background: -webkit-gradient(linear, left top, right top, from($color__g1), to($color__g2));
+	background: -webkit-linear-gradient(left, $color__g1 0%, $color__g2 100%);
+	background: linear-gradient(to right, $color__g1 0%, $color__g2 100%);
+}
+
+.strong-message .text {
+	padding: 27px 0;
+	font-size: 27px;
+	font-size: 2.7rem;
+	line-height: 1.2;
+	color: #fff;
+	font-weight: 200;
+	font-family: $font__primary;
+	text-align: center;
+}
+
+@media print, screen and (min-width: $media__t) {
+	.strong-message .text {
+		padding: 42px 10px;
+		font-size: 42px;
+		font-size: 4.2rem;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.strong-message .text {
+		padding: 60px 0;
+		font-size: 60px;
+		font-size: 6.0rem;
+	}
+}
+
+
+/* passion-case-unit */
+.passion-case-unit .catch-lead .shoulder {
+	text-align: center;
+	width: 100px;
+	margin: 0 auto 9px;
+	padding: 3px 5px; 
+	background-color: $color__primary;
+	background: -webkit-gradient(linear, left top, right top, from($color__g1), to($color__g2));
+	background: -webkit-linear-gradient(left, $color__g1 0%, $color__g2 100%);
+	background: linear-gradient(to right, $color__g1 0%, $color__g2 100%);
+	border-radius: 2px;
+	font-size: 10px;
+	font-size: 1.0rem;
+	font-weight: 600;
+	color: #fff;
+}
+
+.passion-case-unit .catch-lead .catch {
+	text-align: center;
+	margin-bottom: 18px;
+	font-size: 24px;
+	font-size: 2.4rem;
+	color: $color__primary;
+	font-weight: 600;
+}
+
+.passion-case-unit .voice-tech .head {
+	position: relative;
+	text-align: center;
+	margin-bottom: 6px;
+	font-size: 15px;
+	font-size: 1.5rem;
+	color: $color__primary;
+	font-family: $font__secondary;
+	font-weight: 500;
+}
+
+.passion-case-unit .voice-tech .head:before {
+	display: inline-block;
+	position: relative;
+	content: '';
+	width: 10px;
+	height: 10px;
+	margin-right: 5px;
+	background: url("/assets/img/common/head_bg_001.svg") no-repeat top center;
+	background-size: 10px 10px;
+}
+
+.passion-case-unit .voice-tech .head:after {
+	display: inline-block;
+	position: relative;
+	content: '';
+	top: 0px;
+	right: 0;
+	width: 10px;
+	height: 10px;
+	margin-left: 5px;
+	background: url("/assets/img/common/head_bg_002.svg") no-repeat top center;
+	background-size: 10px 10px;
+}
+
+.passion-case-unit .voice-tech .title {
+	text-align: center;
+	margin-bottom: 18px;
+	font-size: 18px;
+	font-size: 1.8rem;
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+.passion-case-unit .voice-tech .title .fc {
+	color: $color__primary;
+}
+
+.passion-case-unit .voice-tech .lead {
+	margin-bottom: 24px;
+	padding: 0 20px;
+	font-size: 12px;
+	font-size: 1.2rem;
+}
+
+.passion-case-unit .voice-tech .item {
+	width: 100%;
+}
+
+.passion-case-unit .voice-tech .item .img {
+	width: 100%;
+	max-width: 300px;
+	margin:0 auto;
+	height: auto;
+	border: 1px solid #dddddd;
+}
+
+.passion-case-unit .body .text {
+	padding: 0 15px 12px;
+	font-size: 15px;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.passion-message .frame,
+.passion-case-unit .body .frame {
+	text-align: center;
+	margin: 15px 0 30px;
+	padding: 12px 5px;
+	border: 2px solid #ddd;
+	background-color: #fff;
+	font-size: 15px;
+	font-size: 1.5rem;
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+.passion-case-unit .point {
+	position: relative;
+	text-align: center;
+	padding: 12px 5px;
+	border: 2px solid $color__primary;
+	background-color: #fff;
+	font-size: 18px;
+	font-size: 1.8rem;
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+.passion-case-unit .point:after {
+	display: block;
+	position: absolute;
+	content: '';
+	top: -10px;
+	left: calc(50% - 25px);
+	width: 50px;
+	height: 17px;
+	background: url("/assets/img/common/arrow-bottom-large.svg") no-repeat top center;
+	background-size: 50px 17px;
+}
+
+@media print, screen and (min-width: $media__t) {
+	.passion-case-unit .catch-lead .shoulder {
+		width: 120px;
+		margin: 0 auto 15px;
+		padding: 3px 10px; 
+		border-radius: 3px;
+		font-size: 15px;
+		font-size: 1.5rem;
+	}
+
+	.passion-case-unit .catch-lead .catch {
+		margin-bottom: 30px;
+		font-size: 36px;
+		font-size: 3.6rem;
+	}
+
+	.passion-case-unit .voice-tech .head {
+		margin-top: 54px;
+		margin-bottom: 9px;
+		font-size: 21px;
+		font-size: 2.1rem;
+	}
+
+	.passion-case-unit .voice-tech .head:before {
+		width: 15px;
+		height: 15px;
+		margin-right: 5px;
+		background-size: 15px 15px;
+	}
+
+	.passion-case-unit .voice-tech .head:after {
+		width: 15px;
+		height: 15px;
+		margin-left: 5px;
+		background-size: 15px 15px;
+	}
+
+	.passion-case-unit .voice-tech .title {
+		margin-bottom: 27px;
+		font-size: 30px;
+		font-size: 3.0rem;
+	}
+
+	.passion-case-unit .voice-tech .lead {
+		margin-bottom: 27px;
+		padding: 0 20px;
+		font-size: 15px;
+		font-size: 1.5rem;
+	}
+
+	.passion-case-unit .voice-tech .flex {
+		margin-left: -20px;
+		margin-bottom: 15px;
+	}
+
+	.passion-case-unit .voice-tech .item {
+		width: calc(50% - 20px);
+		margin-left: 20px;
+	}
+
+	.passion-case-unit .voice-tech .item .img {
+		width: 100%;
+		max-width: none;
+	}
+
+	.passion-case-unit .body .text {
+		padding: 0 30px;
+		margin-bottom: 9px;
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+
+	.passion-message .frame,
+	.passion-case-unit .body .frame {
+		margin: 30px 0 0;
+		padding: 21px 10px;
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+
+	.passion-case-unit .point {
+		padding: 15px 10px;
+		border: 3px solid $color__primary;
+		font-size: 24px;
+		font-size: 2.4rem;
+	}
+
+	.passion-case-unit .point:after {
+		display: block;
+		position: absolute;
+		content: '';
+		top: -12px;
+		left: calc(50% - 30px);
+		width: 60px;
+		height: 20px;
+		background-size: 60px 20px;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.passion-case-unit .catch-lead .shoulder {
+		width: 150px;
+		margin: 0 auto 30px;
+		padding: 3px 10px; 
+		border-radius: 3px;
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+
+	.passion-case-unit .catch-lead .catch {
+		margin-bottom: 48px;
+		font-size: 48px;
+		font-size: 4.8rem;
+	}
+
+	.passion-case-unit .voice-tech .head {
+		margin-top: 72px;
+		margin-bottom: 21px;
+		font-size: 30px;
+		font-size: 3.0rem;
+	}
+
+	.passion-case-unit .voice-tech .head:before {
+		width: 20px;
+		height: 20px;
+		margin-right: 10px;
+		background-size: 20px 20px;
+	}
+
+	.passion-case-unit .voice-tech .head:after {
+		width: 20px;
+		height: 20px;
+		margin-left: 10px;
+		background-size: 20px 20px;
+	}
+
+	.passion-case-unit .voice-tech .title {
+		margin-bottom: 42px;
+		font-size: 42px;
+		font-size: 4.2rem;
+	}
+
+	.passion-case-unit .voice-tech .lead {
+		margin-bottom: 42px;
+		padding: 0 20px;
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+
+	.passion-case-unit .voice-tech .flex {
+		margin-left: -40px;
+		margin-bottom: 15px;
+	}
+
+	.passion-case-unit .voice-tech .item {
+		width: calc(50% - 40px);
+		margin-left: 40px;
+		margin-bottom: 15px;
+	}
+
+	.passion-case-unit .body .text {
+		padding: 0 50px;
+		margin-bottom: 12px;
+		font-size: 24px;
+		font-size: 2.4rem;
+	}
+
+	.passion-message .frame,
+	.passion-case-unit .body .frame {
+		margin: 30px 0 0;
+		padding: 24px 10px;
+		font-size: 24px;
+		font-size: 2.4rem;
+	}
+
+	.passion-case-unit .point {
+		padding: 18px 10px;
+		border: 3px solid $color__primary;
+		font-size: 30px;
+		font-size: 3.0rem;
+	}
+
+	.passion-case-unit .point:after {
+		display: block;
+		position: absolute;
+		content: '';
+		top: -18px;
+		left: calc(50% - 45px);
+		width: 90px;
+		height: 30px;
+		background-size: 90px 30px;
+	}
+}
+
+@media print, screen and (min-width: $media__p2) {
+	.passion-case-unit .voice-tech .flex {
+		margin-left: -50px;
+		margin-bottom: 18px;
+	}
+
+	.passion-case-unit .voice-tech .item {
+		width: calc(50% - 50px);
+		margin-left: 50px;
+		margin-bottom: 18px;
+	}
+}

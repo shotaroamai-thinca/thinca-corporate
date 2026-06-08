@@ -1,0 +1,41 @@
+/* --------------------------------------------------------------------------------
+cta-popup
+-------------------------------------------------------------------------------- */
+
+.cta-popup {
+	z-index: 8000;
+	text-align: center;
+	position:fixed;
+	bottom: 0;
+	right: 20px;
+}
+
+.cta-popup .close {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: -15px;
+	background-color: #666;
+	padding: 5px 0 0;
+	width: 30px;
+	height: 30px;
+	color: #fff;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.cta-popup .banner {
+	position: relative;
+	margin: 15px 0 0;
+}
+
+.cta-popup .banner iframe {
+	width: 250px;
+	height: auto;
+}
+
+@media print, screen and (min-width: $media__t3) {
+	.cta-popup {
+		bottom: 100px;
+	}
+}

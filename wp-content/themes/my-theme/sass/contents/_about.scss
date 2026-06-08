@@ -1,0 +1,196 @@
+/* --------------------------------------------------------------------------------
+about
+-------------------------------------------------------------------------------- */
+
+/* /about/policy/
+-------------------------------------------------- */
+
+.entry-content .message p {
+	text-align: center;
+	font-size: 27px;
+	font-size: 2.7rem;
+	line-height: 1.3;
+	font-weight: 600;
+}
+
+@media print, screen and (min-width: $media__t) {
+
+	.entry-content .message p {
+		font-size: 36px !important;
+		font-size: 3.6rem !important;
+	}
+
+}
+
+@media print, screen and (min-width: $media__p) {
+
+	.entry-content .message p {
+		font-size: 42px !important;
+		font-size: 4.2rem !important;
+	}
+
+}
+
+@media only screen and (max-width: $media__s) {
+	.entry-content .sp-brnone br {
+		display: none;
+	}
+}
+
+@media print, screen and (min-width: $media__t) {
+	.entry-content .about-policy-note {
+		text-align: center;
+	}
+}
+
+.entry-content .large-text {
+	font-size: 18px !important;
+	font-size: 1.8rem !important;
+}
+
+@media print, screen and (min-width: $media__t) {
+	.entry-content .large-text {
+		font-size: 24px !important;
+		font-size: 2.4rem !important;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.entry-content .large-text {
+		font-size: 30px !important;
+		font-size: 3.0rem !important;
+	}
+}
+
+
+/* /about/officers/
+-------------------------------------------------- */
+
+.officers .unit {
+	background-color: #fafafa;
+	background-color: rgba(250, 250, 250, 0.8);
+	-webkit-box-shadow: 0 2px 5px rgba(58, 58, 58, 0.3);
+	box-shadow: 0 2px 5px rgba(58, 58, 58, 0.3);
+	padding: 27px 15px 21px;
+	border-radius: 5px;
+
+}
+
+.officers .unit .img-area {
+	max-width: 240px;
+	margin: 0 auto 21px;
+}
+
+.officers .unit .img-area img {
+	max-width: 240px;
+	height: auto;
+	border-radius: 10px;
+}
+
+.officers .unit .head-area .job {
+	text-align: center;
+	margin-bottom: 6px;
+	font-size: 12px;
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: $color__primary;
+	line-height: 1.1;
+}
+
+.officers .unit .head-area .name {
+	text-align: center;
+	margin-bottom: 18px;
+	font-size: 24px;
+	font-size: 2.4rem;
+	font-weight: 600;
+	line-height: 1.1;
+	color: #111;
+}
+
+.officers .unit .text-area .text {
+	margin: 0 10px 9px;
+	font-size: 15px;
+	font-size: 1.5rem;
+	line-height: 1.7;
+}
+
+@media only screen and (min-width: $media__t) {
+	.officers .unit .text-area .text {
+		margin: 0 30px 9px;
+	}
+}
+
+@media print, screen and (min-width: $media__t3) {
+	.officers .unit {
+		padding: 51px 50px 51px;
+	}
+
+	.officers .unit .img-area {
+		margin: 0;
+	}
+
+	.officers .unit .head-area .job {
+		text-align: left;
+	}
+
+	.officers .unit .head-area .name {
+		text-align: left;
+	}
+
+	.officers .unit .text-area .text {
+		margin: 0 0 9px;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.officers .unit .head-area .job {
+		margin-bottom: 9px;
+		font-size: 12px;
+		font-size: 1.2rem;
+	}
+
+	.officers .unit .head-area .name {
+		margin-bottom: 24px;
+		font-size: 30px;
+		font-size: 3.0rem;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+/* --------------------------------------------------------------------------------
+cta-001
+-------------------------------------------------------------------------------- */
+
+/* cta-001 */
+#cta-001 {
+	background-color: #fafafa;
+	padding: 24px 20px;
+	text-align: center;
+}
+
+#cta-001 .button {
+	display: block;
+	background-color: $color__primary;
+	margin: 0 auto;
+	width: 300px;
+	height: 60px;
+	padding-top: 21px;
+	vertical-align: middle;
+	border-radius: 9999px;
+	color: #fff;
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1;
+	font-weight: bold;
+}
+
+@media print, screen and (min-width: 48em) {
+	#cta-001 .button {
+		padding-top: 20px;
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+}
+
+@media print, screen and (min-width: 61.25em) {
+	#cta-001 .button {
+		padding-top: 18px;
+		font-size: 21px;
+		font-size: 2.1rem;
+	}
+}

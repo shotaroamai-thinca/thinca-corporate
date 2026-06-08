@@ -15,6 +15,10 @@ wp-content/cache/
 wp-content/upgrade/
 wp-content/backup/
 
+# プラグイン由来のバックアップ（容量大）
+wp-content/ai1wm-backups/
+wp-content/updraft/
+
 # WP本体（テーマだけGit管理する場合は wp-content/themes/ 以外を除外する設計もアリ）
 
 # =====================================

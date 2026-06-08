@@ -1,0 +1,193 @@
+/* --------------------------------------------------------------------------------
+list
+-------------------------------------------------------------------------------- */
+
+/* ul
+-------------------------------------------------- */
+
+ul.-ec,
+.entry-content ul {
+	margin-bottom: 27px;
+	font-size: 15px;
+	font-size: 1.5rem;
+	line-height: 1.8;
+}
+
+ul.-ec ul,
+.entry-content ul ul,
+ol.-ec ul,
+.entry-content ol ul {
+	margin: 12px 1em 15px;
+}
+
+ul.-ec li,
+.entry-content ul li {
+	position: relative;
+	margin-bottom: 15px;
+	padding-left: 15px;
+}
+
+ul.-ec li:before,
+.entry-content ul li:before {
+	content: "";
+	position: absolute;
+	top: 0.6em;
+	left: 0;
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	background-color: #666;
+}
+
+ul.-ec ul li:before,
+.entry-content ul ul li:before {
+	content: "";
+	position: absolute;
+	top: 0.8em;
+	left: 0;
+	width: 8px;
+	height: 2px;
+	border-radius: 0;
+	background-color: #666;
+}
+
+ol.-ec ol li,
+.entry-content ol ul li {
+	padding-left: 15px;
+}
+
+ol.-ec ol li:before,
+.entry-content ol ul li:before {
+	counter-reset: my-counter;
+	content: "";
+	top: 0.6em;
+}
+
+@media print, screen and (min-width: $media__t) {
+	ul.-ec,
+	.entry-content ul {
+		margin-bottom: 36px;
+		font-size: 18px !important;
+		font-size: 1.8rem !important;
+	}
+}
+
+
+/* ol
+-------------------------------------------------- */
+
+ol.-ec,
+.entry-content ol {
+	counter-reset: my-counter;
+	margin-bottom: 27px;
+	list-style-type: none;
+	font-size: 15px;
+	font-size: 1.5rem;
+	line-height: 1.8;
+}
+
+ol.-ec ol,
+.entry-content ol ol,
+ul.-ec ol,
+.entry-content ul ol {
+	margin: 12px 0.5em 15px;
+}
+
+ol.-ec li,
+.entry-content ol li {
+	position: relative;
+	margin-bottom: 18px;
+	padding-left: 1.6em;
+}
+
+ol.-ec li:before,
+.entry-content ol li:before {
+	content: counter(my-counter);
+	counter-increment: my-counter;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-weight: 600;
+	color: #111;
+}
+
+ul.-ec ol li:before,
+.entry-content ul ol li:before {
+	background: none;
+}
+
+@media print, screen and (min-width: $media__t) {
+	ol.-ec,
+	.entry-content ol {
+		margin-bottom: 36px;
+		font-size: 18px !important;
+		font-size: 1.8rem !important;
+	}
+}
+
+
+/* note
+-------------------------------------------------- */
+
+/* ul */
+
+ul.note {
+	margin-bottom: 27px;
+	list-style: none;
+}
+
+ul.note li {
+	margin: 0 0 6px;
+	padding: 0 0 0 1.2em;
+	font-size: 12px;
+	font-size: 1.2rem;
+	color: #666;
+	text-indent: -1.2em;
+}
+
+@media print, screen and (min-width: $media__t) {
+	ul.note {
+		margin-bottom: 36px;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	ul.note {
+		margin-bottom: 42px;
+	}
+}
+
+
+/* ol */
+ol.note {
+	counter-reset: number;
+	list-style: none;
+	margin-bottom: 36px;
+}
+
+ol.note li {
+	position: relative;
+	margin-bottom: 12px;
+	padding-left: 15px;
+	font-size: 12px;
+	font-size: 1.2rem;
+	color: #666;
+	line-height: 1.4;
+}
+
+ol.note li:before {
+	counter-increment: number;
+	content: counter(number);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.footnote a {
+	color: #333;
+}
+
+#footnote .section-frame {
+	border-top: 1px solid #dddddd;
+	padding: 12px 15px;
+}

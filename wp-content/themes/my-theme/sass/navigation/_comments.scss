@@ -1,0 +1,170 @@
+/* --------------------------------------------------------------------------------
+comments
+-------------------------------------------------------------------------------- */
+
+/* reset
+-------------------------------------------------- */
+
+#comments .comment-meta,
+#comments .comment-reply-title,
+#comments .comment-form-url,
+#comments .comment-form-cookies-consent,
+#comments .says,
+#comments .comment-notes {
+	display: none;
+}
+
+
+/* comments
+-------------------------------------------------- */
+
+#comments {
+	background-color: #fffef5;
+	border-top: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	padding-top: 21px;
+	padding-bottom: 30px;
+}
+
+#comments .head {
+	margin-bottom: 18px;
+	font-size: 18px;
+	font-size: 1.8rem;
+	line-height: 1.2;
+	font-weight: bold;
+	text-align: center;
+	color: #111;
+}
+
+#comments #comments-list {
+	margin-bottom: 24px;
+}
+
+#comments .comment-body {
+	background-color: #fff;
+	border-radius: 5px;
+	border: 1px solid #dddddd;
+	margin-bottom: 12px;
+	padding: 15px 20px;
+}
+
+#comments .comment-author {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+
+	-webkit-box-align: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+}
+
+#comments .comment-author .avatar {
+	border-radius: 2px;
+	margin-right: 10px;
+}
+
+#comments .comment-author .fn {
+	padding-top: 6px;
+	font-size: 15px;
+	font-size: 1.5rem;
+	line-height: 1.2;
+	font-style: normal;
+	font-weight: bold;
+}
+
+#comments .comment-body p {
+	margin: 9px 0px;
+	font-size: 15px;
+	font-size: 1.5rem;
+}
+
+#comments .comment-body .reply {
+	font-size: 15px;
+	font-size: 1.5rem;
+
+}
+
+#comments #comments-list .children {
+	padding-left: 30px;
+}
+
+#comments .comment-awaiting-moderation {
+	display: block;
+	padding: 12px 0;
+	font-style: normal;
+	font-weight: bold;
+	line-height: 1.2;
+}
+
+#comments .logged-in-as {
+	margin: 12px 0px;
+}
+
+#comments .comment-respond label {
+	display: block;
+	width: 100%;
+	margin-top: 18px;
+	margin-bottom: 6px;
+	font-size: 15px;
+	font-size: 1.5rem;
+	line-height: 1.2;
+	font-weight: bold;
+}
+
+#comments .comment-form-comment textarea {
+	width: 100%;
+	border: 1px solid #dddddd;
+	padding: 20px;
+}
+
+#comments input[type="text"],
+#comments input[type="password"],
+#comments input[type="number"],
+#comments input[type="email"] {
+	border: 1px solid #dddddd;
+	height: 30px;
+	padding: 20px;
+}
+
+#comments input[type="submit"] {
+	margin-top: 15px;
+	border: none;
+	width: 100%;
+	height: 60px;
+	background: $color__primary;
+	box-shadow: none;
+	color: #fff;
+	cursor: pointer;
+	-webkit-appearance: button;
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1;
+	padding: 12px 24px;
+	font-weight: bold;
+	-webkit-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+#comments .form-submit {
+	margin-top: 18px;
+}
+
+@media print, screen and (min-width: $media__p) {
+	#comments {
+		padding-top: 36px;
+		padding-bottom: 45px;
+	}
+
+	#comments .head {
+		margin-bottom: 24px;
+		font-size: 24px;
+		font-size: 2.4rem;
+	}
+}

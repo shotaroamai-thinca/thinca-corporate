@@ -58,3 +58,28 @@ docker compose down -v
 
 - 親プロジェクト: マーケティング部 コーポレートサイト内製化
 - キックオフ資料: [marketing-corporate-site-kickoff-v1.md](https://app.notion.com/p/3685d3440f088125a8caeae430e74c70)
+
+## 進捗ログ
+
+### 2026-06-08 Phase 0 完了
+- ✅ Docker環境（WordPress + MySQL 8.0 + phpMyAdmin）構築・起動確認
+- ✅ Git管理開始、GitHub Privateリポジトリ連携
+- ✅ 本番データ移行（**All-in-One WP Migration**プラグイン経由）
+  - 本番でExport時、Advanced optionsで以下を除外して軽量化:
+    - media library（画像900MB → 後日rsync予定）
+    - must-use plugins
+    - spam comments
+    - post revisions
+  - 結果: フロント画面はテキスト・レイアウト表示OK
+- ✅ ローカル環境調整:
+  - `uploads.ini` でPHP upload上限を 2M → 1024M に拡張
+  - `wp-config.php` に `WP_DEBUG_DISPLAY = false` を追加（ACF旧版のtextdomain警告が画面出力されwp-loginが壊れる現象を回避）
+
+### 🟡 保留中（次回再開タスク）
+- [ ] **画像（wp-content/uploads/）取得** — トオルさんから本番のSSH/FTP情報入手次第、以下で取得:
+  ```bash
+  rsync -avz user@server:/path/to/wp-content/uploads/ ./wp-content/uploads/
+  ```
+- [ ] 本番DBダンプ取得（mysqldump経由） — 上記同タイミング
+- [ ] URL置換（必要に応じてwp-cli search-replace）
+- [ ] Phase 1: Next.js + WPGraphQLヘッドレス化の設計検討

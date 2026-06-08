@@ -1,0 +1,262 @@
+/* --------------------------------------------------------------------------------
+heading
+-------------------------------------------------------------------------------- */
+
+/* text-gradation
+-------------------------------------------------- */
+
+.text-gradation,
+.tg {
+	display: inline-block;
+	color: $color__primary;
+	background-image: radial-gradient(circle,$color__g1 0, $color__g1 50%, $color__g2 100%);
+	background-size: 300% 300%;
+	background-position: 100% 100%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-fill-color: transparent;
+}
+
+.tg .nb {
+	display: inline;
+}
+
+.tg strong {
+	color: $color__primary !important;
+}
+
+
+/* section-heading
+-------------------------------------------------- */
+
+.section-heading {
+	margin: 0 0 21px;
+}
+
+.section-heading span {
+	display: block;
+	text-align: center;
+}
+
+.section-heading .main {
+	font-size: 33px;
+	font-size: 3.3rem;
+	color: $color__primary;
+	font-family: $font__secondary;
+	font-weight: 500;
+}
+
+.section-heading .sub {
+	font-size: 12px;
+	font-size: 1.2rem;
+	color: #111;
+}
+
+@media print, screen and (min-width: $media__t) {
+	.section-heading {
+		margin: 0 0 30px;
+	}
+	.section-heading .main {
+		font-size: 51px;
+		font-size: 5.1rem;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.section-heading {
+		margin: 0 0 33px;
+	}
+	.section-heading .main {
+		font-size: 66px;
+		font-size: 6.6rem;
+	}
+	.section-heading .sub {
+		font-size: 15px;
+		font-size: 1.5rem;
+	}
+}
+
+
+/* section-heading-002
+-------------------------------------------------- */
+
+.section-heading-002 {
+	margin: 0 0 21px;
+}
+
+.section-heading-002 .sub {
+	margin-bottom: 3px;
+	font-size: 12px;
+	font-size: 1.2rem;
+	text-align: center;
+	font-family: $font__secondary;
+	color: $color__primary;
+	line-height: 1;
+	font-weight: 300;
+}
+
+.section-heading-002 .main {
+	margin-bottom: 24px;
+	font-size: 21px;
+	font-size: 2.1rem;
+	text-align: center;
+	font-family: $font__primary;
+	font-weight: 600;
+	line-height: 1.2;
+	color: #111;
+}
+
+@media print, screen and (min-width: $media__t) {
+}
+
+@media print, screen and (min-width: $media__p) {
+	.section-heading-002 {
+		margin: 0 0 48px;
+	}
+
+	.section-heading-002 .sub {
+		font-size: 15px;
+		font-size: 1.5rem;
+	}
+
+	.section-heading-002 .main {
+		font-size: 24px;
+		font-size: 2.4rem;
+	}
+}
+
+
+/* section-heading-img
+-------------------------------------------------- */
+
+.section-heading-img img {
+	display: block;
+	margin: 0 auto;
+	height: auto;
+}
+
+@media only screen and (max-width: $media__s) {
+	.section-heading-img {
+		margin-bottom: 30px;
+	}
+	.section-heading-img img {
+		width: 180px;
+	}
+}
+
+@media print, screen and (min-width: $media__t) {
+	.section-heading-img {
+		margin-bottom: 39px;
+	}
+	.section-heading-img img {
+		width: 240px;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.section-heading-img {
+		margin-bottom: 54px;
+	}
+	.section-heading-img img {
+		width: 309px;
+	}
+}
+
+
+/* h2
+-------------------------------------------------- */
+
+.entry-content h2 {
+	position: relative;
+	margin-top: 54px;
+	margin-bottom: 24px;
+	padding-bottom: 15px;
+	border-bottom: 2px solid #ddd;
+	font-size: 24px;
+	font-size: 2.4rem;
+	line-height: 1.2;
+}
+
+.entry-content h2:after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0px;
+	width: 80px;
+	height: 2px;
+	background-color: $color__primary;
+}
+
+@media print, screen and (min-width: $media__t) {
+	.entry-content h2 {
+		font-size: 27px;
+		font-size: 2.7rem;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.entry-content h2 {
+		margin-top: 60px;
+		margin-bottom: 27px;
+		padding-bottom: 18px;
+		font-size: 33px;
+		font-size: 3.3rem;
+	}
+}
+
+
+/* h3
+-------------------------------------------------- */
+
+.entry-content h3 {
+	margin-top: 51px;
+	margin-bottom: 21px;
+	font-size: 21px;
+	font-size: 2.1rem;
+}
+
+@media print, screen and (min-width: $media__t) {
+	.entry-content h3 {
+		margin-top: 54px;
+		margin-bottom: 21px;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.entry-content h3 {
+		margin-top: 57px;
+		margin-bottom: 21px;
+		font-size: 24px !important;
+		font-size: 2.4rem !important;
+	}
+}
+
+
+/* h4
+-------------------------------------------------- */
+
+.entry-content h4{
+	margin-top: 41px;
+	margin-bottom: 12px;
+	font-size: 16px;
+	font-size: 1.6rem;
+}
+
+@media print, screen and (min-width: $media__t) {
+	.entry-content h4{
+		margin-top: 48px;
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.entry-content h4{
+		margin-top: 48px;
+		margin-bottom: 12px;
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+}
+

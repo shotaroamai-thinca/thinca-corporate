@@ -1,0 +1,34 @@
+/* --------------------------------------------------------------------------------
+breadcrumbs
+-------------------------------------------------------------------------------- */
+
+@media only screen and (max-width: $media__s) {
+	.breadcrumbs {
+		display: none;
+	}
+}
+
+@media print, screen and (min-width: $media__t) {
+	.breadcrumbs {
+		padding-top: 27px;
+		padding-bottom: 27px;
+		color: #888;
+		font-size: 12px;
+		font-size: 1.2rem;
+	}
+
+	.breadcrumbs a {
+		color: #555;
+	}
+
+	.breadcrumbs .current-item {
+		color: #888;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.breadcrumbs {
+		padding-top: 33px;
+		padding-bottom: 33px;
+	}
+}

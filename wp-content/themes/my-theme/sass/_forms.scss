@@ -1,0 +1,333 @@
+/* --------------------------------------------------------------------------------
+Forms - mw_wp_form
+-------------------------------------------------------------------------------- */
+
+/* table
+-------------------------------------------------- */
+
+.mw_wp_form_business table {
+	border: none;
+	border-collapse: collapse;
+	margin: 0 0 21px;
+	width: 100%;
+}
+
+.mw_wp_form_business table th {
+	display: block;
+	text-align: left;
+	margin-bottom: 9px; 
+	font-weight: 600;
+	font-size: 15px;
+	font-size: 1.5rem;
+	color: #111;
+}
+
+.mw_wp_form_business table td {
+	display: block;
+	text-align: left;
+	margin-bottom: 24px; 
+}
+
+@media print, screen and (min-width: 48em) {
+	.mw_wp_form_business table {
+		margin: 21px 0 33px;
+	}
+
+	.mw_wp_form_business table {
+		border-bottom: 2px solid #ddd;
+		margin: 21px 0 45px;
+		width: 100%;
+	}
+
+	.mw_wp_form_business table th,
+	.mw_wp_form_business table td {
+		display: table-cell;
+		border-top: 2px solid #ddd;
+	}
+
+	.mw_wp_form_business table th {
+		position: relative;
+		padding: 39px;
+		font-size: 18px;
+		font-size: 1.8rem;
+		white-space: nowrap;
+	}
+
+	.mw_wp_form_business table td {
+		padding: 30px 30px 30px 0;
+	}
+
+	.mw_wp_form_business table th {
+		width: 30%;
+	}
+
+	.mw_wp_form_business table td {
+		width: 70%;
+	}
+}
+
+/* require
+-------------------------------------------------- */
+
+.mw_wp_form_business .require {
+	position: relative;
+	top: -2px;
+	left: 10px;
+	background-color: $color__primary;
+	border-radius: 1px;
+	color: #fff;
+	font-size: 10px;
+	font-size: 1.0rem;
+	padding: 4px 5px;
+}
+
+
+/* input
+-------------------------------------------------- */
+
+.mw_wp_form_business input[type="text"],
+.mw_wp_form_business input[type="password"],
+.mw_wp_form_business input[type="number"],
+.mw_wp_form_business input[type="email"],
+.mw_wp_form_business textarea {
+	width: 100%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin: 0;
+	padding: 12px 15px;
+	-webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+	background-color: #fff;
+	border: 1px solid #dddddd;
+	border-radius: 0px;
+	-webkit-transition: border-color cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s, background-color cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s;
+	transition: border-color cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s, background-color cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s;
+}
+
+.mw_wp_form_business input[name="tel[data][0]"],
+.mw_wp_form_business input[name="tel[data][1]"],
+.mw_wp_form_business input[name="tel[data][2]"],
+.mw_wp_form_business input[name="zip[data][0]"],
+.mw_wp_form_business input[name="zip[data][1]"] {
+	width: 75px;
+}
+
+@media print, screen and (min-width: $media__t2) {
+	.mw_wp_form_business input[type="text"],
+	.mw_wp_form_business input[type="password"],
+	.mw_wp_form_business input[type="number"],
+	.mw_wp_form_business input[type="email"],
+	.mw_wp_form_business textarea {
+		padding: 15px 20px;
+		border-radius: 0px;
+	}
+	.mw_wp_form_business input[name="tel[data][0]"],
+	.mw_wp_form_business input[name="tel[data][1]"],
+	.mw_wp_form_business input[name="tel[data][2]"],
+	.mw_wp_form_business input[name="zip[data][0]"],
+	.mw_wp_form_business input[name="zip[data][1]"] {
+		width: 85px;
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.mw_wp_form_business input[type="text"],
+	.mw_wp_form_business input[type="password"],
+	.mw_wp_form_business input[type="number"],
+	.mw_wp_form_business input[type="email"],
+	.mw_wp_form_business textarea {
+		border-radius: 0px;
+	}
+}
+
+.mw_wp_form_business input[type="text"]:focus,
+.mw_wp_form_business input[type="password"]:focus,
+.mw_wp_form_business input[type="number"]:focus,
+.mw_wp_form_business input[type="email"]:focus,
+.mw_wp_form_business textarea:focus {
+	outline: none;
+	border-color: $color__primary;
+	background-color: #fff;
+}
+
+.mw_wp_form_business input[type="text"]::-webkit-input-placeholder,
+.mw_wp_form_business input[type="password"]::-webkit-input-placeholder,
+.mw_wp_form_business input[type="number"]::-webkit-input-placeholder,
+.mw_wp_form_business input[type="email"]::-webkit-input-placeholder,
+.mw_wp_form_business textarea::-webkit-input-placeholder {
+	color: #aaa;
+}
+
+.mw_wp_form_business input[type="text"]:-ms-input-placeholder,
+.mw_wp_form_business input[type="password"]:-ms-input-placeholder,
+.mw_wp_form_business input[type="number"]:-ms-input-placeholder,
+.mw_wp_form_business input[type="email"]:-ms-input-placeholder,
+.mw_wp_form_business textarea:-ms-input-placeholder {
+	color: #aaa;
+}
+
+.mw_wp_form_business input[type="text"]::-moz-placeholder,
+.mw_wp_form_business input[type="password"]::-moz-placeholder,
+.mw_wp_form_business input[type="number"]::-moz-placeholder,
+.mw_wp_form_business input[type="email"]::-moz-placeholder,
+.mw_wp_form_business textarea::-moz-placeholder {
+	color: #aaa;
+}
+
+.mw_wp_form_business .mwform-radio-field {
+	display: inline-block;
+	margin-bottom: 6px; 
+	width: 100%;
+}
+
+.mw_wp_form_business .horizontal-item:first-child {
+	margin-left: 10px; 
+}
+
+
+.mw_wp_form_business select {
+	padding: 9px 10px;
+	border-radius: 0px;
+	border: 1px solid #dddddd;
+	background-color: #fff;
+	-webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+}
+
+
+
+/* business-description
+-------------------------------------------------- */
+
+.mw_wp_form_confirm .business-description {
+	display: none;
+}
+
+.mw_wp_form .business-description p {
+	margin-bottom: 9px;
+}
+
+
+/* error
+-------------------------------------------------- */
+
+.mw_wp_form .error {
+	position: relative;
+	display : block;
+	margin: 15px 0 3px;
+	padding: 9px 15px;
+	background-color: #fff3ff;
+	border-radius: 3px;
+	font-size: 15px;
+	font-size: 1.5rem;
+	font-weight: bold;
+	color : #cc0000;
+}
+
+.mw_wp_form .error:before {
+	content: "";
+	position: absolute;
+	top: -30px;
+	left: 30px;
+	margin-left: -15px;
+	border: 15px solid transparent;
+	border-bottom: 15px solid #fff3ff;
+}
+
+.error {
+	font-weight: 600;
+	color : #cc0000;
+}
+
+
+/* button
+-------------------------------------------------- */
+
+/* action-buttons */
+.mw_wp_form_business .action-buttons {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap-reverse;
+	flex-wrap: wrap-reverse;
+}
+
+@media print, screen and (min-width: $media__t2) {
+	.mw_wp_form_business .action-buttons {
+		display: block;
+		text-align: center;
+	}
+}
+
+/* button */
+.mw_wp_form_business button,
+.mw_wp_form_business input[type="button"],
+.mw_wp_form_business input[type="reset"],
+.mw_wp_form_business input[type="submit"] {
+	border: none;
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	font-size: 15px;
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: rgb(255, 255, 255);
+	background: linear-gradient(to right, rgb(204, 41, 38) 0%, rgb(239, 144, 58) 100%);
+	border-radius: 3px;
+	margin: 0 0 16px;
+	-webkit-box-shadow: 0 2px 5px rgba(58, 58, 58, 0.3);
+	box-shadow: 0 2px 5px rgba(58, 58, 58, 0.3);
+	cursor: pointer;
+	-webkit-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+@media print, screen and (min-width: $media__t2) {
+	.mw_wp_form_business button,
+	.mw_wp_form_business input[type="button"],
+	.mw_wp_form_business input[type="reset"],
+	.mw_wp_form_business input[type="submit"] {
+		height: 54px;
+		line-height: 54px;
+		margin: 0 10px;
+		max-width: 210px;
+		height: 60px;
+		line-height: 60px;
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+}
+
+@media print, screen and (min-width: $media__t3) {
+	.mw_wp_form_business button,
+	.mw_wp_form_business input[type="button"],
+	.mw_wp_form_business input[type="reset"],
+	.mw_wp_form_business input[type="submit"] {
+		margin: 0 15px;
+		max-width: 300px;
+	}
+}
+
+.mw_wp_form_business input[type="submit"]:hover,
+.mw_wp_form_business input[type="submit"]:focus,
+.mw_wp_form_business input[type="submit"]:active {
+	opacity:0.8;
+}
+
+/* submitBack */
+.mw_wp_form_business input[name="submitBack"] {
+	margin-top: 18px; 
+	background: #d8d8d8;
+	color: #333;
+}
+
+.mw_wp_form_business input[name="submitBack"]:hover,
+.mw_wp_form_business input[name="submitBack"]:focus,
+.mw_wp_form_business input[name="submitBack"]:active {
+	opacity:0.8;
+}

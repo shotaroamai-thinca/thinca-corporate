@@ -1,0 +1,43 @@
+/* --------------------------------------------------------------------------------
+ir
+-------------------------------------------------------------------------------- */
+
+/* irtop
+-------------------------------------------------- */
+
+.irtop .button-area {
+	margin: -9px auto 0;
+	max-width: 270px;
+
+}
+
+@media print, screen and (min-width: $media__p) {
+	.irtop .button-area {
+		width: 300px;
+		margin: -15px auto 0;
+
+	}
+}
+
+/* irschedule */
+
+.irtop .irschedule {
+	background-color: #fafafa;
+	padding: 30px 0 24px;
+}
+
+.irtop .irschedule img {
+	width: 100%;
+}
+
+.irtop .irschedule .button-area {
+	margin-top: 6px;
+}
+
+@media print, screen and (min-width: $media__p) {
+	.irtop .irschedule {
+		padding: 39px 0 33px;
+	}
+}
+
+

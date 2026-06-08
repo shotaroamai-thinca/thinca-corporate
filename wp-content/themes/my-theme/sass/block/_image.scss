@@ -1,0 +1,78 @@
+/* --------------------------------------------------------------------------------
+image
+-------------------------------------------------------------------------------- */
+
+img {
+	display: block;
+	height: auto;
+}
+
+.entry-content .wp-block-image {
+	margin-top: 0;
+	margin-bottom: 27px; /* pのmargin-bottomに合わせる */
+	padding-top: 6px; /* pの行間分の余白(上) */
+}
+
+.entry-content .wp-block-image img {
+	margin: 0 auto;
+}
+
+@media print, screen and (min-width: $media__t) {
+	.entry-content .wp-block-image {
+		margin-bottom: 36px; /* pのmargin-bottomに合わせる */
+		padding-top: 8px; /* pの行間分の余白(上) */
+	}
+}
+
+@media print, screen and (min-width: $media__p) {
+	.entry-content .wp-block-image {
+		margin-bottom: 42px; /* pのmargin-bottomに合わせる */
+		padding-top: 8px; /* pの行間分の余白(上) */
+	}
+}
+
+/* caption
+-------------------------------------------------- */
+
+.caption {
+	display: block;
+	text-align: center;
+	margin: -15px auto 27px;
+	width: 100%;
+	font-size: 12px;
+	font-size: 1.2rem;
+	color: #666;
+}
+
+.entry-content .wp-block-image figcaption {
+	text-align: center;
+	margin: 9px 0 0; 
+	font-size: 12px;
+	font-size: 1.2rem;
+	color: #666;
+}
+
+.caption.-size_l {
+	font-size: 15px;
+	font-size: 1.5rem;
+	color: #111;
+	font-weight: 600;
+}
+
+@media print, screen and (min-width: $media__t) {
+	.caption {
+		font-size: 15px;
+		font-size: 1.5rem;
+	}
+
+	.entry-content .wp-block-image figcaption {
+		font-size: 15px;
+		font-size: 1.5rem;
+	}
+
+	.caption.-size_l {
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+}
+

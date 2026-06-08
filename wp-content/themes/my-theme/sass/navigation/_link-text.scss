@@ -1,0 +1,61 @@
+/* --------------------------------------------------------------------------------
+link-text
+-------------------------------------------------------------------------------- */
+
+.link-text {
+	position: relative;
+	font-weight: bold;
+	color: $color__link;
+}
+
+.link-text svg {
+	position: relative;
+	top: -1px;
+	width: 10px;
+	height: 10px;
+	fill: $color__link;
+}
+
+.hover svg {
+	-webkit-transition: all .4s ease;
+	transition: all .4s ease;
+}
+
+.hover:hover svg {
+	-webkit-transform: translateX(5px);
+	transform: translateX(5px);
+}
+
+
+/* link-001 */
+.link-001 {
+	display: block;
+	margin: 15px 5% 0;
+	position: relative;
+	text-align: center;
+	background-color: #fff;
+	border: 1px solid $color__primary;
+	height: 42px;
+	padding-top: 7px; 
+	font-weight: bold;
+	color: #222;
+}
+
+.link-001 svg {
+	position: relative;
+	top: 0;
+	width: 10px;
+	height: 10px;
+	fill: $color__primary;
+}
+
+@media print, screen and (min-width: 37.5625em) {
+	.link-001 {
+		margin: 21px auto 0;
+		max-width: 360px;
+		height: 54px;
+		padding-top: 12px; 
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+}

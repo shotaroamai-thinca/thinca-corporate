@@ -1,0 +1,41 @@
+/* --------------------------------------------------------------------------------
+reset
+-------------------------------------------------------------------------------- */
+
+/* margin padding */
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure {
+	margin: 0;
+	padding: 0;
+}
+
+/* list-style */
+ul,
+ol {
+	list-style: none;
+}
+
+/* body color */
+body {
+	background: #fff;
+}
+
+/* unit */
+.unit {
+	display: block;
+	position: relative;
+	width: 100%;
+	text-decoration: none;
+	color: #333;
+}
+
+.unit:hover {
+	text-decoration: none;
+}

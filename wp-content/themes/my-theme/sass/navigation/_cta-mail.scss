@@ -1,0 +1,129 @@
+/* --------------------------------------------------------------------------------
+cta-main
+-------------------------------------------------------------------------------- */
+
+/* section */
+.cta-main .section-wrapper {
+	background-color: $color__sub;
+}
+
+.cta-main .section-frame {
+	padding: 27px 0 27px;
+}
+
+@media print, screen and (min-width: 48em) {
+	.cta-main .section-frame {
+		padding: 41px 0 36px;
+	}
+}
+
+@media print, screen and (min-width: 61.25em) {
+	.cta-main .section-frame {
+		padding: 57px 0 48px;
+	}
+}
+
+/* catch & lead */
+.cta-main .section-frame .catch {
+	margin-bottom: 12px;
+	font-size: 16px;
+	font-size: 1.6rem;
+	text-align: center;
+	font-weight: bold;
+	color: $color__secondary;
+	line-height: 1.2;
+	font-family: $font__primary;
+}
+
+.cta-main .section-frame .lead {
+	margin-bottom: 18px;
+	font-size: 24px;
+	font-size: 2.4rem;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
+	line-height: 1.4;
+	font-family: $font__secondary;
+}
+
+@media print, screen and (min-width: 48em) {
+	.cta-main .section-frame .catch {
+		margin-bottom: 12px;
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+	.cta-main .section-frame .lead {
+		margin-bottom: 30px;
+		font-size: 27px;
+		font-size: 2.7rem;
+	}
+}
+
+@media print, screen and (min-width: 61.25em) {
+	.cta-main .section-frame .catch {
+		font-size: 21px;
+		font-size: 2.1rem;
+	}
+	.cta-main .section-frame .lead {
+		margin-bottom: 41px;
+		font-size: 36px;
+		font-size: 3.6rem;
+	}
+}
+
+/* input */
+.cta-main input[type="text"] {
+	margin: 0 0 15px;
+	padding: 18px 21px;
+}
+
+@media print, screen and (min-width: 48em) {
+	.cta-main input[type="text"] {
+		width: 65%;
+		height: 60px;
+	}
+}
+
+@media print, screen and (min-width: 61.25em) {
+	.cta-main input[type="text"] {
+		height: 90px;
+	}
+
+}
+.cta-main .box001 {
+	width: 100%;
+}
+
+/* button */
+.cta-main input[type="submit"] {
+	border: none;
+	width: 100%;
+	height: 60px;
+	background: $color__primary;
+	box-shadow: none;
+	color: #fff;
+	cursor: pointer;
+	-webkit-appearance: button;
+	font-size: 18px;
+	font-size: 1.8rem;
+	line-height: 1;
+	padding: 12px 24px;
+	font-weight: bold;
+	-webkit-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+@media print, screen and (min-width: 48em) {
+	.cta-main input[type="submit"] {
+		width: 35%;
+	}
+}
+
+@media print, screen and (min-width: 61.25em) {
+	.cta-main input[type="submit"] {
+		height: 90px;
+		font-size: 24px;
+		font-size: 2.4rem;
+	}
+
+}
