@@ -1,0 +1,478 @@
+@charset "UTF-8";
+
+/* ----------------------------------
+IR情報
+* ---------------------------------- */
+.irTop__mainSec {
+	margin-top: -34px;
+}
+
+.irTop__h2 {
+	margin-bottom: 30px;
+	text-align: center;
+}
+.irTop__h2_en {
+	color: #CC2926;
+	display: block;
+	font-size: 15px;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+.irTop__h2_ja {
+	color: #333333;
+	display: block;
+	font-size: 27px;
+  font-size: 2.7rem;
+	font-weight: 600;
+}
+@media print, screen and (min-width: 60em) {
+	.irTop__h2 {
+		margin-bottom: 60px;
+	}
+	.irTop__h2_en {
+		margin-bottom: 6px;
+	}
+}
+
+.irTop__newsSec {
+	padding-bottom: 60px;
+}
+.irTop__newsSec .button-area {
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 210px;
+}
+.irTop__newsSec .button-area a {
+	margin-bottom: 0;
+}
+@media print, screen and (min-width: 60em) {
+	.irTop__newsSec {
+		padding-bottom: 120px;
+	}
+	.irTop__newsSec .button-area {
+		margin-top: 60px;
+		width: 270px;
+	}
+}
+
+.irTop__cardSec {
+	background: #FAFAFA;
+	padding: 60px 0;
+}
+.irTop__cardSec_inner {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1260px;
+}
+@media print, screen and (min-width: 60em) {
+	.irTop__cardSec {
+		padding: 100px 0 124px;
+	}
+}
+
+.irTop__cardList_item {
+	background: #FFFFFF;
+	border-radius: 6px;
+	box-shadow: 0 2px 5px rgba(58, 58, 58, 0.3);
+	padding: 18px 15px 30px;
+}
+.irTop__cardList_img {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 150px;
+}
+.irTop__cardList_img img {
+	-o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.irTop__cardList_ttl {
+	margin: 20px 0;
+	text-align: center;
+}
+.irTop__cardList_ttl a {
+	color: #333333;
+	font-size: 20px;
+	font-size: 2rem;
+	font-weight: 600;
+	padding-right: 20px;
+	position: relative;
+	text-decoration: none;
+}
+.irTop__cardList_ttl a::after {
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	content: '';
+	margin-left: 10px;
+	width: 15px;
+	height: 15px;
+	background: url(/assets/ir/img/arrow-left.svg) no-repeat top center;
+	background-size: 15px 15px;
+	-webkit-transition: all ease 0.3s;
+	transition: all ease 0.3s;
+}
+.irTop__cardList_linkList {
+	padding: 0 10px;
+}
+.irTop__cardList_linkList_item:not(:first-child) {
+	margin-top: 6px;
+}
+.irTop__cardList_linkList_item a {
+	color: #666666;
+	display: inline-block;
+	font-size: 15px;
+	font-size: 1.5rem;
+	font-weight: 600;
+	padding-left: 24px;
+	position: relative;
+	text-decoration: none;
+}
+.irTop__cardList_linkList_item a::before {
+	background: url("/assets/ir/img/arrow-circle.svg") no-repeat center / cover;
+	content: "";
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 4px;
+	-webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+	width: 16px;
+	height: 16px;
+}
+.irTop__cardList_linkList_item a[target="_blank"]::after {
+	background: url("/assets/ir/img/blank.svg") no-repeat center / cover;
+	content: "";
+	display: inline-block;
+	-webkit-transition: all ease 0.3s;
+	margin-left: 8px;
+  transition: all ease 0.3s;
+	width: 11px;
+	height: 11px;
+}
+
+.irTop__cardList-3col .irTop__cardList_item:not(:first-child) {
+	margin-top: 30px;
+}
+
+.irTop__cardList-1col {
+	margin-top: 30px;
+}
+.irTop__cardList_linkList_wrap {
+	margin-top: 20px;
+}
+.irTop__cardList_linkList:not(:first-child) {
+	margin-top: 6px;
+}
+@media print, screen and (min-width: 60em) {
+	.irTop__cardList_ttl {
+		margin: 34px 0 30px;
+	}
+	.irTop__cardList_ttl a {
+		font-size: 24px;
+		font-size: 2.4rem;
+	}
+	.irTop__cardList_ttl a:hover::after {
+		margin-left: 15px;
+	}
+	.irTop__cardList_linkList {
+		padding: 0 20px;
+	}
+	.irTop__cardList_linkList_item:not(:first-child) {
+		margin-top: 10px;
+	}
+	.irTop__cardList_linkList_item a {
+		font-size: 16px;
+		font-size: 1.6rem;
+	}
+	.irTop__cardList_linkList_item a:hover::before {
+		left: 3px;
+	}
+
+	.irTop__cardList-3col {
+		display: flex;
+		gap: 90px;
+		width: 100%;
+	}
+	.irTop__cardList-3col .irTop__cardList_item {
+		padding: 23px 15px 62px;
+		width: calc((100% - (90px * 2)) / 3);
+	}
+	.irTop__cardList-3col .irTop__cardList_item:not(:first-child) {
+		margin-top: 0;
+	}
+	.irTop__cardList-3col .irTop__cardList_img {
+		height: 186px;
+	}
+
+	.irTop__cardList-1col {
+		margin-top: 60px;
+	}
+	.irTop__cardList-1col .irTop__cardList_item {
+		display: flex;
+		gap: 96px;
+		width: 100%;
+	}
+	.irTop__cardList-1col .irTop__cardList_img {
+		width: 340px;
+		height: 191px;
+	}
+	.irTop__cardList-1col .irTop__cardList_linkList_wrap {
+		display: flex;
+		align-items: center;
+		gap: 30px;
+		margin-top: 0;
+		width: calc(100% - (96px + 340px));
+	}
+	.irTop__cardList_linkList_wrap .irTop__cardList_linkList {
+		padding: 0;
+		width: 34%;
+	}
+	.irTop__cardList_linkList:not(:first-child) {
+    margin-top: 0;
+	}
+}
+
+
+/* ----------------------------------
+株主・投資家の皆様へ
+* ---------------------------------- */
+.irManagement_presidentPic {
+	display: flex;
+	gap: 30px;
+	align-items: center;
+}
+
+.irManagement_presidentPic_img {
+	width: 50%;
+	height: auto;
+    flex-shrink: 0;
+}
+
+.irManagement_presidentPic_img img {
+	width: 100%;
+}
+
+.irManagement_presidentPic_name > span {
+	display: inline-block;
+}
+
+.irManagement_presidentPic_name_pic {
+    margin-top: 10px;
+}
+
+.irManagement_presidentPic_name_pic img {
+    width: 220px;
+    max-width: 100%;
+}
+
+@media print, screen and (min-width: 60em) {
+	.irManagement_presidentPic_img {
+		width: 264px;
+	}
+}
+
+/* ----------------------------------
+IRカレンダー
+* ---------------------------------- */
+.ir__calendarImg {
+	margin-bottom: 30px;
+}
+.ir__calendarImg img {
+	max-width: 100%;
+}
+.ir__calendarImg img:first-child {
+	margin-bottom: 20px;
+}
+@media print, screen and (min-width: 60em) {
+	.ir__calendarImg {
+		display: flex;
+		gap: 2px;
+		justify-content: space-between;
+	}
+	.ir__calendarImg img {
+		width: calc((100% - 2px) / 2);
+	}
+	.ir__calendarImg img:first-child {
+		margin-bottom: 0;
+	}
+}
+
+
+/* ----------------------------------
+よくあるご質問
+* ---------------------------------- */
+.ir__faqList + .ir__faqList {
+	margin-top: 30px;
+}
+.ir__faqList {
+	border: 1px solid #dddddd;
+	border-radius: 3px;
+}
+.ir__faqList_q,
+.ir__faqList_a {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	padding: 10px 15px;
+}
+.ir__faqList_q {
+	background: #f1f1f1;
+	font-weight: 600;
+}
+.ir__faqList_a {
+	margin: 0;
+}
+.ir__faqList_q_icon,
+.ir__faqList_a_icon {
+	color: #CC2926;
+	font-size: 22px;
+	font-weight: 700;
+}
+.ir__faqList_q p,
+.ir__faqList_a p:first-of-type {
+	margin-bottom: 0 !important;
+}
+@media print, screen and (min-width: 60em) {
+	.ir__faqList + .ir__faqList {
+		margin-top: 50px;
+	}
+	.ir__faqList_q,
+	.ir__faqList_a {
+		gap: 20px;
+		padding: 10px 20px;
+	}
+	.ir__faqList_q_icon,
+	.ir__faqList_a_icon {
+		font-size: 32px;
+	}
+}
+
+
+/* ----------------------------------
+navi
+* ---------------------------------- */
+.ir__contactTbl {
+	margin-bottom: 30px;
+}
+.ir__contactTbl th,
+.ir__contactTbl td {
+	font-size: 15px;
+	font-size: 1.5rem;
+	line-height: 1.8;
+}
+.ir__contactTbl th {
+	padding-right: 1rem;
+	text-align: left;
+	vertical-align: top;
+	white-space: nowrap;
+}
+@media print, screen and (min-width: 32.5em) {
+	.ir__contactTbl th,
+	.ir__contactTbl td {
+    font-size: 18px;
+    font-size: 1.8rem;
+	}
+}
+
+
+/* ----------------------------------
+navi
+* ---------------------------------- */
+.ir__localNav_list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px 50px;
+	justify-content: center;
+	width: 100%;
+}
+.ir__localNav_list_item {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.ir__localNav_list_item::before {
+	display: none;
+}
+.ir__localNav_list_item a {
+	padding-right: 20px;
+	position: relative;
+}
+.ir__localNav_list_item a[target="_blank"]::after {
+	background: url(/assets/ir/img/blank.svg) no-repeat center / cover;
+	content: "";
+	display: inline-block;
+	-webkit-transition: all ease 0.3s;
+	margin-left: 8px;
+	transition: all ease 0.3s;
+	width: 11px;
+	height: 11px;
+}
+.ir__localNav_list_item a::before {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	content: '';
+	margin-left: 10px;
+	width: 15px;
+	height: 15px;
+	background: url(/assets/ir/img/arrow-left.svg) no-repeat top center;
+	background-size: 15px 15px;
+	-webkit-transition: all ease 0.3s;
+	transition: all ease 0.3s;
+}
+.ir__localNav_list_item-active a {
+	color: #111;
+	font-weight: 600;
+	padding-right: 0;
+	pointer-events: none;
+}
+.ir__localNav_list_item-active a::before {
+	display: none;
+}
+.ir__localNav_list_item a:hover {
+	text-decoration: none;
+}
+@media print, screen and (min-width: 60em) {
+	.ir__localNav {
+		margin-bottom: 70px;
+	}
+	.ir__localNav_list_item a:hover::before {
+		right: -5px;
+	}
+}
+
+
+a[target="_blank"].ir__txtLink::after {
+	background: url(/assets/ir/img/blank.svg) no-repeat center / cover;
+	content: "";
+	display: inline-block;
+	-webkit-transition: all ease 0.3s;
+	margin-left: 8px;
+	transition: all ease 0.3s;
+	width: 11px;
+	height: 11px;
+}
+
+
+.ir__pr1 {
+	padding-right: 1rem;
+}
+
+.ir__taC {
+	text-align: center;
+}
+.ir__taL {
+	text-align: left;
+}
+.ir__taR {
+	text-align: right;
+}

@@ -75,11 +75,24 @@ docker compose down -v
   - `uploads.ini` でPHP upload上限を 2M → 1024M に拡張
   - `wp-config.php` に `WP_DEBUG_DISPLAY = false` を追加（ACF旧版のtextdomain警告が画面出力されwp-loginが壊れる現象を回避）
 
-### 🟡 保留中（次回再開タスク）
-- [ ] **画像（wp-content/uploads/）取得** — トオルさんから本番のSSH/FTP情報入手次第、以下で取得:
-  ```bash
-  rsync -avz user@server:/path/to/wp-content/uploads/ ./wp-content/uploads/
-  ```
-- [ ] 本番DBダンプ取得（mysqldump経由） — 上記同タイミング
-- [ ] URL置換（必要に応じてwp-cli search-replace）
+### 2026-06-10 Phase 0+ 本番完全同期完了
+- ✅ **本番サーバ情報判明**: さくらインターネット / 本番WPパス `/home/kaicloud/www/www-thinca-co-jp`
+- ✅ **画像取得**（636MB・3372ファイル）: rsync経由で `./wp-content/uploads/` に同期
+- ✅ **サイトルート `/assets/` 取得**（6.6MB）: カスタム実装で `wp-content/uploads/` ではなくサイトルート直下に画像配置されていた
+  - `docker-compose.yml` の volumes に `./assets:/var/www/html/assets` 追加
+- ✅ **本番DB完全同期**: phpMyAdminからエクスポート(200MB.sql.gz) → コマンド経由で取り込み
+  - 注意: 本番DBは複数サイト同居（5サイト分のテーブルが283個）
+  - 該当プレフィックスは `wpa3c285`（コーポサイト用）
+  - `gunzip -c ... | sed '/^CREATE DATABASE/d; /^USE /d' | docker exec -i thinca_db mysql ...` でCREATE文除外しつつインポート
+- ✅ **table_prefix を `wp_` → `wpa3c285` に変更**:
+  - Docker公式WPイメージのwp-config.phpは `getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_')` 形式
+  - `sed -i "s/getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_')/'wpa3c285'/"` で直接書き換え
+- ✅ **wp-cli導入**（コンテナ内）→ **URL置換**: `wp search-replace 'https://www.thinca.co.jp' 'http://localhost:8080' --skip-columns=guid`
+- ✅ **「Giving WordPress its own directory」パターン対応**:
+  - 本番は `/wp/` サブディレクトリにWPコア配置（CSS/JS等が `/wp/wp-content/...` 参照）
+  - シンボリックリンクで対応: `/var/www/html/wp/{wp-content,wp-includes,wp-admin}` → 実体への参照
+- ✅ **フロント完全表示OK**
+
+### 🟡 次回検討
 - [ ] Phase 1: Next.js + WPGraphQLヘッドレス化の設計検討
+- [ ] 本番DBの定期同期フロー（更新差分の取り込み）

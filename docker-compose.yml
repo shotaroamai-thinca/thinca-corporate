@@ -17,6 +17,7 @@ services:
     volumes:
       - ./wp-content:/var/www/html/wp-content
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - ./assets:/var/www/html/assets 
     depends_on:
       - db
     restart: unless-stopped

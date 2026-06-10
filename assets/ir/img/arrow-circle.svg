@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
+  <g id="icon_01-arrow1-r" transform="translate(0.5 0.5)">
+    <path id="Fill_1" data-name="Fill 1" d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0" fill="#fff" stroke="#cc2926" stroke-width="1"/>
+    <path id="Path" d="M3.359,3.359,1,5.713A.589.589,0,0,1,.172,4.88L2.11,2.943.172,1A.589.589,0,0,1,1,.172L3.359,2.526a.589.589,0,0,1,0,.832" transform="translate(6.375 5.24)" fill="#cc2926"/>
+  </g>
+</svg>
