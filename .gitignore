@@ -5,21 +5,31 @@
 db_data/
 
 # =====================================
-# WordPress 関連
+# WordPress 関連（新構造 public/ 配下）
 # =====================================
 # アップロード画像は容量が大きいので除外（必要なら別途rsync）
-wp-content/uploads/
+public/wp/wp-content/uploads/
 
 # キャッシュ系
-wp-content/cache/
-wp-content/upgrade/
-wp-content/backup/
+public/wp/wp-content/cache/
+public/wp/wp-content/upgrade/
+public/wp/wp-content/backup/
 
 # プラグイン由来のバックアップ（容量大）
-wp-content/ai1wm-backups/
-wp-content/updraft/
+public/wp/wp-content/ai1wm-backups/
+public/wp/wp-content/updraft/
 
-# WP本体（テーマだけGit管理する場合は wp-content/themes/ 以外を除外する設計もアリ）
+# =====================================
+# WordPress 設定ファイル（機密情報・絶対commitしない）
+# =====================================
+# wp-config.php（Docker起動時にローカル用に自動生成・本番DB情報を含む可能性）
+public/wp-config.php
+public/wp/wp-config.php
+
+# wp-config.php のバックアップ（本番DB情報入り）
+*.production-backup
+public/**/*backup*
+public/**/*.bak
 
 # =====================================
 # DBダンプ・機密情報
@@ -47,3 +57,13 @@ Thumbs.db
 node_modules/
 dist/
 .cache/
+
+# =====================================
+# 旧構造の名残（クリーンビルド前のパス）
+# =====================================
+# 念のため旧パスも除外
+wp-content/uploads/
+wp-content/ai1wm-backups/
+wp-content/updraft/
+</content>
+</invoke>

@@ -1,4 +1,4 @@
-# thinca-corporate-wp
+# thinca-corporate
 
 シンカ社コーポレートサイト（https://www.thinca.co.jp/）の WordPress を Docker で管理するリポジトリ。
 
@@ -7,6 +7,28 @@
 - WordPress（localhost:8080）
 - MySQL 8.0
 - phpMyAdmin（localhost:8081）
+
+## ディレクトリ構造
+
+本番と同じ「Giving WordPress its own directory」構造を再現：
+
+```
+thinca-corporate/
+├── docker-compose.yml
+├── uploads.ini
+├── README.md
+├── .gitignore
+└── public/                 ← Dockerマウント先（=本番のドキュメントルートに相当）
+    ├── .htaccess           ← ローカル用に社内IP制限はコメントアウト済
+    ├── index.php           ← 「Giving WP own directory」用
+    ├── assets/             ← サイトルート直下のカスタムassets
+    └── wp/                 ← WordPress本体（本番と同じ場所）
+        ├── wp-admin/
+        ├── wp-content/     ← themes/plugins/uploads
+        ├── wp-includes/
+        ├── wp-login.php
+        └── ... (他PHPファイル)
+```
 
 ## 起動方法
 
@@ -28,22 +50,24 @@ docker compose down -v
 
 | URL | 用途 |
 |---|---|
-| http://localhost:8080 | WordPress |
+| http://localhost:8080 | WordPress フロント |
+| http://localhost:8080/wp/wp-login.php | 管理画面ログイン |
 | http://localhost:8081 | phpMyAdmin（DB可視化） |
 
-## DB情報（ローカル）
+## DB情報（ローカル専用）
 
 - DB名: `thinca_wp`
 - ユーザー: `wpuser` / パスワード: `wppass`
 - ルート: `root` / パスワード: `rootpass`
+- テーブル接頭辞: `wpa3c285`（本番に合わせる）
 
-> ※ローカル専用、本番DB情報とは別。
+> ⚠️ローカル専用。本番DB情報とは別。docker-compose.yml で固定。
 
 ---
 
 ## 🌱 環境構築ガイド（非エンジニア向け・初めての人用）
 
-> このガイドの通りに進めれば、**自分のMacの中で本番コーポサイトのコピーが動く** ようになります。所要時間：1〜2時間。
+> このガイドの通りに進めれば、**自分のMacの中で本番コーポサイトのコピーが動く** ようになります。所要時間：合計1〜1.5時間。
 
 ### このガイドが完了したらできること
 
@@ -56,104 +80,88 @@ docker compose down -v
 | 用語 | 意味 |
 |---|---|
 | **Docker** | アプリを「箱」に入れて動かす仕組み。WordPressもMySQLもこの箱で動く |
-| **コンテナ** | Dockerの箱の中身。今回は3つ（WP、MySQL、phpMyAdmin） |
+| **コンテナ** | Dockerの箱の中身。今回は3つ（WP・MySQL・phpMyAdmin） |
 | **rsync** | ファイルをコピーするコマンド。サーバ↔自分のMacの間で使う |
 | **wp-cli** | WordPressをコマンドで操作するツール |
 | **phpMyAdmin** | データベースを画面で操作するツール |
 
 ### 事前準備
 
-#### 1. Docker Desktopをインストール
+#### 1. Docker Desktop インストール
 - https://www.docker.com/products/docker-desktop/ にアクセス
 - 自分のMacに合った版（Apple Silicon or Intel）をダウンロード→インストール
 - 起動して、メニューバーにクジラ🐳マークが出ればOK
 
-#### 2. GitHubアカウント
-- https://github.com/ で作成（既にあればスキップ）
-- SSHキー設定（やり方は別途AI推進室に相談）
+#### 2. GitHub SSH設定
+- GitHubアカウント作成（既にあればスキップ）
+- SSHキーの設定（やり方はAI推進室に相談）
 
-#### 3. ターミナルを開く
+#### 3. 本番アクセス情報を取得（AI推進室から）
+- SSHポート番号（例：22）
+- SSHパスワード
+- 本番phpMyAdminのURL・ログイン情報
+
+#### 4. ターミナルを開く
 - アプリ → ユーティリティ → ターミナル
-
-#### 4. 本番サーバの情報を取得
-AI推進室から下記を共有してもらう：
-- SSHポート番号（例：22 など）
-- SSHパスワード（または鍵ファイル）
 
 ---
 
-### Step 1: リポジトリを自分のMacにダウンロード
+### Step 1: リポジトリを clone（30秒）
 
-ターミナルで以下を1行ずつコピペ実行：
+ターミナルで以下を1行ずつ実行：
 
 ```bash
 mkdir -p ~/Documents/projects
 cd ~/Documents/projects
-git clone git@github.com:shotaroamai-thinca/thinca-corporate.git thinca-corporate-wp
-cd thinca-corporate-wp
+git clone git@github.com:shotaroamai-thinca/thinca-corporate.git
+cd thinca-corporate
 ```
 
-→ ファイル一式が `~/Documents/projects/thinca-corporate-wp/` に降りてくる
+→ コード一式（テーマ・プラグイン・WP本体含む）が `~/Documents/projects/thinca-corporate/` に降りてくる
 
-### Step 2: Docker環境を起動
+### Step 2: Docker環境を起動（5分・初回）
 
 ```bash
 docker compose up -d
 ```
 
-→ WordPress、MySQL、phpMyAdminの3つのコンテナが立ち上がる（初回は5分くらいかかる）
+→ WordPress・MySQL・phpMyAdminの3コンテナが立ち上がる（初回はimage pullで5分くらい）
 
 確認：
 ```bash
-docker ps
+docker ps | grep thinca
 ```
 
-→ 3つコンテナ（thinca_wp、thinca_db、thinca_pma）がRunningなら成功
+→ 3コンテナ（thinca_wp、thinca_db、thinca_pma）がUpなら成功
 
-### Step 3: 動作確認（仮）
+### Step 3: 本番から画像（uploads/）を取得（30分・容量大）
 
-ブラウザで開く：
-- http://localhost:8080 → WordPressのセットアップ画面が出る（まだコンテンツなし）
-- http://localhost:8081 → phpMyAdmin（ユーザー: `wpuser` / パスワード: `wppass`）
-
-→ ここで動けば基盤OK
-
-### Step 4: 本番から画像を取得
-
-本番サーバ `/home/kaicloud/www/www-thinca-co-jp/wp-content/uploads/` から自分のMacに画像コピー。
+WordPress の画像群（数百MB）を本番からコピー：
 
 ```bash
-cd ~/Documents/projects/thinca-corporate-wp && rsync -avz --progress -e "ssh -p {SSHポート}" kaicloud@www2182.sakura.ne.jp:/home/kaicloud/www/www-thinca-co-jp/wp-content/uploads/ ./wp-content/uploads/
+rsync -avz --progress -e "ssh -p {SSHポート}" kaicloud@www2182.sakura.ne.jp:/home/kaicloud/www/www-thinca-co-jp/wp/wp-content/uploads/ ./public/wp/wp-content/uploads/
 ```
 
 > `{SSHポート}` は AI推進室から教えてもらった数字に置き換える
 
-→ 600MB以上あるので10〜30分かかる
+→ 600MB目安・10〜30分かかる。SSHパスワード入力を求められる
 
-### Step 5: 本番から `/assets/` を取得
+### Step 4: 本番DBダンプを取得＆ローカルに取り込み（15分）
 
-本番では画像の一部がサイトのルート直下にある（カスタム実装のため）。これも取得：
+#### 4-1. 本番phpMyAdminでエクスポート
 
-```bash
-rsync -avz --progress -e "ssh -p {SSHポート}" kaicloud@www2182.sakura.ne.jp:/home/kaicloud/www/www-thinca-co-jp/assets/ ./assets/
-```
-
-### Step 6: 本番のデータベースをダウンロード＆取り込み
-
-#### 6-1. 本番phpMyAdminからエクスポート
-
-1. 本番phpMyAdminにアクセス（AI推進室から URL・ログイン情報受け取る）
-2. 左サイドバーで **「コーポサイト用のDB」**（プレフィックス `wpa3c285` で始まるテーブルが含まれるDB）を選択
+1. 本番phpMyAdminにログイン（URL・情報はAI推進室から）
+2. 左サイドバーで **コーポサイト用DB** を選択（プレフィックス `wpa3c285` で始まるテーブルが含まれるDB）
 3. 上部「**エクスポート**」タブ
-4. **「カスタム」** を選択
+4. 「**カスタム**」を選択
 5. 設定：
    - 圧縮：**gzip 形式**
    - フォーマット：SQL
-   - **「Add DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT / TRIGGER statement」** にチェック
-   - **「Add IF NOT EXISTS」** にチェック
-6. 一番下「**実行**」→ `.sql.gz` がダウンロードされる
+   - 「**Add DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT / TRIGGER statement**」にチェック
+   - 「**Add IF NOT EXISTS**」にチェック
+6. 一番下「**実行**」→ `.sql.gz` ファイルがダウンロードされる（200MB目安）
 
-#### 6-2. ローカルに取り込む
+#### 4-2. ローカルに取り込み
 
 ダウンロードファイル名を確認：
 ```bash
@@ -170,139 +178,166 @@ gunzip -c ~/Downloads/{ダンプファイル名}.sql.gz | sed '/^CREATE DATABASE
 
 → 1〜3分かかる。プロンプト（`%` の行）が戻ったら完了
 
-#### 6-3. WordPressのテーブル接頭辞を本番に合わせる
+### Step 5: URL置換（本番URL → localhost）（2分）
 
-本番ではテーブル名が `wpa3c285_xxx` で始まってる。ローカルのWPに教える：
+DB内に本番URL（https://www.thinca.co.jp）が残ってるので、localhost に書き換える。
 
-```bash
-docker exec thinca_wp sed -i "s/getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_')/'wpa3c285'/" /var/www/html/wp-config.php
-```
-
-### Step 7: URL置換（本番URL → localhost）
-
-データベース内に本番URL（https://www.thinca.co.jp）が残ってるので、`localhost:8080` に置き換える。
-
-#### 7-1. wp-cliをインストール
+#### 5-1. wp-cli をインストール
 
 ```bash
 docker exec thinca_wp bash -c "curl -sO https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp"
 ```
 
-#### 7-2. URL置換実行
+#### 5-2. URL置換実行
 
 ```bash
 docker exec thinca_wp wp search-replace 'https://www.thinca.co.jp' 'http://localhost:8080' --allow-root --skip-columns=guid
 ```
 
-→ 「Success: Made X replacements」と出れば成功
+→ 「Success: Made X replacements」が出れば成功
 
-### Step 8: 本番特有の `/wp/` ディレクトリ構造に対応
+### Step 6: Really Simple SSL を無効化（1分）
 
-本番では WordPress 本体が `/wp/` サブディレクトリにある特殊構成。ローカルでもそれを再現：
+本番ではHTTPS強制してるが、ローカル（http）だとリダイレクトループになるので無効化：
 
 ```bash
-docker exec thinca_wp bash -c "mkdir -p /var/www/html/wp && ln -sf /var/www/html/wp-content /var/www/html/wp/wp-content && ln -sf /var/www/html/wp-includes /var/www/html/wp/wp-includes && ln -sf /var/www/html/wp-admin /var/www/html/wp/wp-admin"
+docker exec thinca_wp wp plugin deactivate really-simple-ssl --allow-root
 ```
 
-### Step 9: 動作確認
-
-ブラウザで開く：
+### Step 7: 動作確認（5分）
 
 ```bash
 open http://localhost:8080
 ```
 
-→ もしSSL接続エラーが出たら：
-- ブラウザ右クリック → シークレットウィンドウで開く
-- もしくは Chrome の場合 `chrome://net-internals/#hsts` で `localhost` を Delete
-
-→ ハードリロード：**Cmd + Shift + R**
-
 🎉 **本番と同じコーポサイトが localhost で見えたら完了！**
+
+#### もしSSLエラー（ERR_SSL_PROTOCOL_ERROR）が出たら
+
+**ブラウザのHSTS（HTTPS強制キャッシュ）** が原因の可能性。対処：
+
+**Chromeの場合：**
+1. アドレスバーに `chrome://net-internals/#hsts`
+2. 一番下「**Delete domain security policies**」
+3. 「Domain」に `localhost` 入力 → **Delete**
+4. Chrome完全終了（Cmd+Q）→再起動
+
+**手っ取り早い回避策：**
+```bash
+open -a "Safari" http://localhost:8080
+```
+→ Safariは HSTSキャッシュなしの状態で開ける
 
 ---
 
-### トラブルシューティング
+## ⚠️ データベース情報の扱い（重要）
+
+| 項目 | 扱い |
+|---|---|
+| **wp-config.php** | Docker起動時に自動生成。本番DB情報を含まないローカル専用設定 |
+| **ローカルDB接続情報** | `docker-compose.yml` に固定（wpuser/wppass等） |
+| **本番DB接続情報** | 本番にSSH接続して確認のみ。**Gitリポジトリには絶対含めない** |
+| **DBダンプファイル（.sql.gz）** | gitignore対象。各メンバーが本番から取得→ローカルに取り込み |
+| **本番DBデータ** | 各メンバーのローカルにのみ存在。本番には書き戻さない |
+
+### GitHub に含まれるもの／含まれないもの
+
+| ✅ cloneで降りてくる | ❌ 個別取得（各メンバー） |
+|---|---|
+| docker-compose.yml | wp-config.php（Docker自動生成） |
+| public/wp/wp-admin/, wp-includes/ | public/wp/wp-content/uploads/（rsync） |
+| public/wp/wp-content/themes/, plugins/ | DBダンプ（本番phpMyAdmin） |
+| public/assets/ | 本番DB接続情報 |
+| .htaccess（社内IP制限はコメントアウト済） | - |
+| この手順書（README） | - |
+
+---
+
+## 🛠️ トラブルシューティング
 
 | 症状 | 対処 |
 |---|---|
-| Docker起動エラー | Docker Desktopが起動してるか確認 |
-| `localhost:8080` で「このサイトは安全に接続できません」 | Step 9のシークレットウィンドウ / HSTS削除を試す |
-| CSSや画像が読み込まれない | Step 8の `/wp/` シンボリックリンクを再実行 |
-| データベース接続エラー | Step 6-3 の table_prefix が `wpa3c285` になってるか確認 |
-| 画像が一部表示されない | Step 5 の `assets/` 取得を再実行 |
-| ファイルアップロードで「2MB超過」 | uploads.ini が反映されてない。`docker compose down && docker compose up -d` でコンテナ再作成 |
+| Docker起動エラー | Docker Desktop が起動してるか確認 |
+| 「ERR_SSL_PROTOCOL_ERROR」 | Step 7のHSTS削除 or Safari で開く |
+| CSS/画像が読み込まれない | URL置換（Step 5）を再実行・キャッシュクリア |
+| データベース接続エラー | `docker-compose.yml` の `WORDPRESS_TABLE_PREFIX = wpa3c285` を確認 |
+| 「403 Forbidden」 | `public/.htaccess` の冒頭4行（Satisfy Any等）がコメントアウトされてるか確認 |
+| 画像が一部表示されない | Step 3 の uploads/ 取得を再実行 |
+| ファイルアップロード「2MB超過」 | uploads.ini が反映されてない。`docker compose down && docker compose up -d` でコンテナ再作成 |
+| `/wp/wp-login.php` が 404 | `public/wp/wp-login.php` が存在するか確認。なければ Step 3 を再確認 |
 
 ---
 
-### よく使うコマンド集
+## 📝 よく使うコマンド集
 
 | やりたいこと | コマンド |
 |---|---|
-| Docker起動 | `cd ~/Documents/projects/thinca-corporate-wp && docker compose up -d` |
-| Docker停止 | `cd ~/Documents/projects/thinca-corporate-wp && docker compose down` |
+| Docker起動 | `cd ~/Documents/projects/thinca-corporate && docker compose up -d` |
+| Docker停止 | `cd ~/Documents/projects/thinca-corporate && docker compose down` |
 | ログ確認 | `docker compose logs -f` |
 | WordPressコンテナに入る | `docker exec -it thinca_wp bash` |
 | MySQLコンテナに入る | `docker exec -it thinca_db mysql -uroot -prootpass thinca_wp` |
 | キャッシュクリア | `docker exec thinca_wp wp cache flush --allow-root` |
+| 管理画面ログイン | http://localhost:8080/wp/wp-login.php |
 
 ---
 
-## 本番からのデータ移行手順（参考・上の詳細ガイドの要約版）
+## 🔐 Git管理ルール
 
-1. **テーマファイル取得**: SSH/FTPで本番 `wp-content/themes/` を `./wp-content/themes/` にコピー
-2. **画像取得**: 本番 `wp-content/uploads/` を `./wp-content/uploads/` にコピー
-3. **プラグイン取得**: 本番 `wp-content/plugins/` を `./wp-content/plugins/` にコピー
-4. **DBダンプ取得**: 本番 phpMyAdmin でエクスポート → ローカル取り込み（プレフィックス調整含む）
-5. **URL置換**: `wp-cli` の `search-replace` で本番URLをlocalhostに置換
-6. **`/wp/` 対応**: シンボリックリンク作成
+| 種類 | Git管理 | 理由 |
+|---|---|---|
+| docker-compose.yml / README / .gitignore | ✅ | 共通設定 |
+| public/wp/wp-admin/, wp-includes/, *.php | ✅ | WP本体 |
+| public/wp/wp-content/themes/, plugins/ | ✅ | カスタム部分・本番設定 |
+| public/assets/ | ✅ | 軽量・必要 |
+| public/.htaccess | ✅（ローカル用編集済） | ⚠️本番デプロイ時は社内IP制限を有効化する |
+| **public/wp/wp-content/uploads/** | ❌ | 容量大（数百MB） |
+| **DB / wp-config.php / .sql.gz** | ❌ | 機密情報・容量大 |
+| ai1wm-backups/, updraft/ | ❌ | 不要バックアップ |
 
-## Git管理ルール
+⚠️ **本番デプロイ時の注意**：
+- `public/.htaccess` の社内IP制限部分はローカル用にコメントアウト済。本番反映する場合は再有効化必要
+- `wp-config.php` はローカル自動生成なので、本番にはデプロイしない
+- DB は別管理。本番のDBを直接触らない
 
-- テーマ・プラグインのコード → Git管理
-- 画像（wp-content/uploads/） → Git管理外（容量大）
-- DB → Git管理外（ローカル別管理）
-- 機密情報（.env等） → Git管理外
+---
 
-## 関連ドキュメント
+## 📚 関連ドキュメント
 
 - 親プロジェクト: マーケティング部 コーポレートサイト内製化
 - キックオフ資料: [marketing-corporate-site-kickoff-v1.md](https://app.notion.com/p/3685d3440f088125a8caeae430e74c70)
 
-## 進捗ログ
+---
 
-### 2026-06-08 Phase 0 完了
-- ✅ Docker環境（WordPress + MySQL 8.0 + phpMyAdmin）構築・起動確認
-- ✅ Git管理開始、GitHub Privateリポジトリ連携
-- ✅ 本番データ移行（**All-in-One WP Migration**プラグイン経由）
-  - 本番でExport時、Advanced optionsで以下を除外して軽量化:
-    - media library（画像900MB → 後日rsync予定）
-    - must-use plugins
-    - spam comments
-    - post revisions
-  - 結果: フロント画面はテキスト・レイアウト表示OK
-- ✅ ローカル環境調整:
-  - `uploads.ini` でPHP upload上限を 2M → 1024M に拡張
-  - `wp-config.php` に `WP_DEBUG_DISPLAY = false` を追加（ACF旧版のtextdomain警告が画面出力されwp-loginが壊れる現象を回避）
+## 📅 進捗ログ
 
-### 2026-06-10 Phase 0+ 本番完全同期完了
-- ✅ **本番サーバ情報判明**: さくらインターネット / 本番WPパス `/home/kaicloud/www/www-thinca-co-jp`
-- ✅ **画像取得**（636MB・3372ファイル）: rsync経由で `./wp-content/uploads/` に同期
-- ✅ **サイトルート `/assets/` 取得**（6.6MB）: カスタム実装で `wp-content/uploads/` ではなくサイトルート直下に画像配置されていた
-  - `docker-compose.yml` の volumes に `./assets:/var/www/html/assets` 追加
-- ✅ **本番DB完全同期**: phpMyAdminからエクスポート(200MB.sql.gz) → コマンド経由で取り込み
-  - 注意: 本番DBは複数サイト同居（5サイト分のテーブルが283個）
-  - 該当プレフィックスは `wpa3c285`（コーポサイト用）
-  - `gunzip -c ... | sed '/^CREATE DATABASE/d; /^USE /d' | docker exec -i thinca_db mysql ...` でCREATE文除外しつつインポート
-- ✅ **table_prefix を `wp_` → `wpa3c285` に変更**:
-  - Docker公式WPイメージのwp-config.phpは `getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_')` 形式
-  - `sed -i "s/getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_')/'wpa3c285'/"` で直接書き換え
-- ✅ **wp-cli導入**（コンテナ内）→ **URL置換**: `wp search-replace 'https://www.thinca.co.jp' 'http://localhost:8080' --skip-columns=guid`
-- ✅ **「Giving WordPress its own directory」パターン対応**:
-  - 本番は `/wp/` サブディレクトリにWPコア配置（CSS/JS等が `/wp/wp-content/...` 参照）
-  - シンボリックリンクで対応: `/var/www/html/wp/{wp-content,wp-includes,wp-admin}` → 実体への参照
-- ✅ **フロント完全表示OK**
+### 2026-06-11 クリーンビルドで完全再構築 ✅
+- 旧構造（wp-content直マウント・シンボリックリンク方式）から本番完全準拠の構造へ移行
+- 新ディレクトリ構造: `public/` 配下にWPコア・assets・サイトルートファイル全部入り
+- 本番から rsync で WPコア（wp-admin/wp-includes/*.php）を取得
+- `wp-config.php` は Docker imageの自動生成に任せる（永続化問題を解決）
+- table_prefix は環境変数 `WORDPRESS_TABLE_PREFIX=wpa3c285` で永続管理
+- `.htaccess` の社内IP制限はローカル用にコメントアウト（本番に戻す時は注意⚠️）
+- フロント・管理画面（`/wp/wp-login.php`）両方の正常動作確認
 
-### 🟡 次回検討
-- [ ] Phase 1: Next.js + WPGraphQLヘッドレス化の設計検討
-- [ ] 本番DBの定期同期フロー（更新差分の取り込み）
+### 2026-06-10 Phase 0+ 本番完全同期完了（旧構造ベース）
+- 本番サーバ情報判明: さくらインターネット / 本番WPパス `/home/kaicloud/www/www-thinca-co-jp`
+- 画像取得（636MB・3372ファイル）
+- 本番DB完全同期、URL置換、`/wp/` 構造対応（シンボリックリンク方式）
+- ※詳細は git history 参照
+
+### 2026-06-08 Phase 0 完了（初期構築）
+- Docker環境構築、Git管理開始、All-in-One WP Migration経由で初期データ取り込み
+- ※詳細は git history 参照
+
+---
+
+## 🟡 次回検討
+
+- [ ] GitHub Actions による自動デプロイ実装（mainブランチ→本番反映）
+- [ ] Phase 1: Next.js + WPGraphQL ヘッドレス化の設計
+- [ ] 本番DB の定期同期フロー（更新差分の取り込み）
+- [ ] `.htaccess` の環境別管理（ローカル vs 本番）
+- [ ] テスト環境（test-thinca-co-jp）の活用方針
+</content>
+</invoke>

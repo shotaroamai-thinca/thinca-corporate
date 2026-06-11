@@ -1,0 +1,49 @@
+# ローカル開発用にコメントアウト（本番では社内IP制限のため有効）
+# Satisfy Any
+# order deny,allow
+# deny from all
+# allow from 182.48.49.92
+RewriteEngine on
+RewriteBase /
+RewriteRule ^company.html$ /about/ [R=301,L]
+RewriteRule ^about.html$ /about/ [R=301,L]
+RewriteRule ^company/philosophy.html$ /about/policy/ [R=301,L]
+RewriteRule ^company/officer.html$ /about/officers/ [R=301,L]
+RewriteRule ^company/greeting.html$ /about/message/ [R=301,L]
+RewriteRule ^recruit.html$ /recruit/ [R=301,L]
+RewriteRule ^media/information$ /news/ [R=301,L]
+RewriteRule ^privacy.html$ /privacy-policy/ [R=301,L]
+RewriteRule ^regional_revitalization.html$ /regional_revitalization/
+RewriteRule ^contact/user_contact.html$ https://kaiwa.cloud/user-contact/ [R=301,L]
+RewriteCond %{REQUEST_URI} ^/recruit/
+RewriteRule ^(.*)$ https://recruit.thinca.co.jp/ [R=301,L]
+# BEGIN SAKURA Internet Inc.
+<IfModule mod_deflate.c>
+    SetOutputFilter DEFLATE
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/x-javascript application/javascript application/ecmascript
+</IfModule>
+<IfModule mod_expires.c>
+    ExpiresActive On
+    <FilesMatch "\.(css|js)$">
+        ExpiresDefault "access plus 1 week"
+    </FilesMatch>
+    <FilesMatch "\.(gif|jpe?g|png)$">
+        ExpiresDefault "access plus 1 month"
+    </FilesMatch>
+</IfModule>
+# END SAKURA Internet Inc.
+# BEGIN WordPress
+# "BEGIN WordPress" から "END WordPress" までのディレクティブ (行) は
+# 動的に生成され、WordPress フィルターによってのみ修正が可能です。
+# これらのマーカー間にあるディレクティブへのいかなる変更も上書きされてしまいます。
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
