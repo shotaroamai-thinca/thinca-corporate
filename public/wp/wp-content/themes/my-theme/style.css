@@ -6999,4 +6999,24 @@ ie
   .tg strong {
     color: #cc2926 !important;
   }
-} /*# sourceMappingURL=style.css.map */
+}
+/* --------------------------------------------------------------------------------
+電子公告 (IR/Notice) - ファイル形式・サイズの表示
+-------------------------------------------------------------------------------- */
+.link-list .unit .title .filemeta {
+  display: inline-block;
+  margin-left: 4px;
+  color: #666;
+  font-size: 12px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+@media print, screen and (min-width: 768px) {
+  .link-list .unit .title .filemeta {
+    margin-left: 8px;
+    font-size: 13px;
+    font-size: 1.3rem;
+  }
+}
+ /*# sourceMappingURL=style.css.map */

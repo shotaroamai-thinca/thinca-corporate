@@ -526,6 +526,112 @@ function my_enqueue_style() {
 
 
 /* --------------------------------------------------------------------------------
+電子公告（IR / Notice）の管理用
+- 管理画面サイドバーに「電子公告」メニューを追加（ACF Options Page）
+- リピーターで「日付・タイトル・ファイル」を1行ずつ管理
+-------------------------------------------------------------------------------- */
+
+if ( function_exists( 'acf_add_options_page' ) ) {
+	acf_add_options_page( array(
+		'page_title'  => '電子公告',
+		'menu_title'  => '電子公告',
+		'menu_slug'   => 'ir-notice',
+		'capability'  => 'edit_posts',
+		'parent_slug' => '',
+		'position'    => 30,
+		'icon_url'    => 'dashicons-megaphone',
+		'redirect'    => false,
+		'updated_message' => '電子公告を更新しました。',
+	) );
+}
+
+if ( function_exists( 'acf_add_local_field_group' ) ) {
+	acf_add_local_field_group( array(
+		'key'        => 'group_ir_notice',
+		'title'      => '電子公告',
+		'fields'     => array(
+			array(
+				'key'           => 'field_ir_notice_list',
+				'label'         => '電子公告リスト',
+				'name'          => 'notice_list',
+				'type'          => 'repeater',
+				'instructions'  => '電子公告として /ir/notice/ ページに掲載する項目を追加してください。1行ごとに「日付」「タイトル」「ファイル」を設定します。並び順はドラッグで変更できます。',
+				'required'      => 0,
+				'min'           => 0,
+				'max'           => 0,
+				'layout'        => 'block',
+				'button_label'  => '電子公告を追加',
+				'sub_fields'    => array(
+					array(
+						'key'            => 'field_ir_notice_date',
+						'label'          => '日付',
+						'name'           => 'date',
+						'type'           => 'date_picker',
+						'required'       => 1,
+						'display_format' => 'Y/n/j',
+						'return_format'  => 'Y-m-d',
+						'first_day'      => 0,
+						'wrapper'        => array( 'width' => '20' ),
+					),
+					array(
+						'key'         => 'field_ir_notice_title',
+						'label'       => 'タイトル',
+						'name'        => 'title',
+						'type'        => 'text',
+						'required'    => 1,
+						'wrapper'     => array( 'width' => '50' ),
+					),
+					array(
+						'key'           => 'field_ir_notice_file',
+						'label'         => 'ファイル',
+						'name'          => 'file',
+						'type'          => 'file',
+						'required'      => 1,
+						'return_format' => 'array',
+						'library'       => 'all',
+						'wrapper'       => array( 'width' => '30' ),
+					),
+				),
+			),
+		),
+		'location'   => array(
+			array(
+				array(
+					'param'    => 'options_page',
+					'operator' => '==',
+					'value'    => 'ir-notice',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position'   => 'normal',
+		'style'      => 'default',
+	) );
+}
+
+/* --------------------------------------------------------------------------------
+ファイルサイズを人間が読める形式に変換（例: 200KB / 1.5MB）
+-------------------------------------------------------------------------------- */
+
+function my_format_filesize( $bytes ) {
+	if ( ! is_numeric( $bytes ) || $bytes <= 0 ) {
+		return '';
+	}
+	$units = array( 'B', 'KB', 'MB', 'GB', 'TB' );
+	$exp   = (int) min( floor( log( $bytes, 1024 ) ), count( $units ) - 1 );
+	$size  = $bytes / pow( 1024, $exp );
+
+	if ( $exp === 0 ) {
+		return $size . $units[ $exp ];
+	} elseif ( $size >= 100 ) {
+		return round( $size ) . $units[ $exp ];
+	} else {
+		return number_format( $size, 1, '.', '' ) . $units[ $exp ];
+	}
+}
+
+
+/* --------------------------------------------------------------------------------
 カスタム投稿タイプnewsをREST APIで公開
 -------------------------------------------------------------------------------- */
 // 方法1: カスタム投稿タイプ登録時にフック（推奨）
