@@ -19,17 +19,41 @@ the_post(); ?>
 	</div><!-- .section-frame -->
 </header><!-- .page-title -->
 
-<?php $has_notices = have_rows( 'notice_list', 'option' ); ?>
+<?php
+// 公開期間でフィルタリングして表示対象の電子公告を集める
+$visible_notices = array();
+$now_ts          = current_time( 'timestamp' );
 
-<?php if ( $has_notices ) : ?>
+if ( have_rows( 'notice_list', 'option' ) ) {
+	while ( have_rows( 'notice_list', 'option' ) ) : the_row();
+		$publish_start = get_sub_field( 'publish_start' );
+		$publish_end   = get_sub_field( 'publish_end' );
+
+		if ( $publish_start && strtotime( $publish_start ) > $now_ts ) {
+			continue;
+		}
+		if ( $publish_end && strtotime( $publish_end ) <= $now_ts ) {
+			continue;
+		}
+
+		$visible_notices[] = array(
+			'date'  => get_sub_field( 'date' ),
+			'title' => get_sub_field( 'title' ),
+			'file'  => get_sub_field( 'file' ),
+		);
+	endwhile;
+}
+?>
+
+<?php if ( ! empty( $visible_notices ) ) : ?>
 <section class="link-list mb">
 	<div class="section-wrapper"><div class="section-frame">
 		<div class="unit-wrapper fw">
 
-<?php while ( have_rows( 'notice_list', 'option' ) ) : the_row();
-	$date_raw = get_sub_field( 'date' );
-	$title    = get_sub_field( 'title' );
-	$file     = get_sub_field( 'file' );
+<?php foreach ( $visible_notices as $notice ) :
+	$date_raw = $notice['date'];
+	$title    = $notice['title'];
+	$file     = $notice['file'];
 
 	$file_url    = '';
 	$file_format = '';
@@ -75,7 +99,7 @@ the_post(); ?>
 					<svg><use xlink:href="#arrow-right"></use></svg>
 				</div><!-- .title -->
 			</a><!-- .unit -->
-<?php endwhile; ?>
+<?php endforeach; ?>
 
 		</div><!-- .unit-wrapper -->
 	</div><!-- .section-frame --></div><!-- .section-wrapper -->
